@@ -16,8 +16,6 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 gem 'friendly_id'
 
-gem 'rails_12factor'
-
 gem 'figaro'
 
 gem 'metamagic'
@@ -43,7 +41,9 @@ gem 'mini_magick'
 
 # Use Unicorn as the app server
 # gem 'unicorn'
-
+group :production do
+  gem 'rails_12factor'
+end 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
