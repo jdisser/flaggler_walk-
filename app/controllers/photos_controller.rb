@@ -4,48 +4,48 @@ class PhotosController < ApplicationController
   #adjust for public pages
   # GET /photos
   # GET /photos.json
-  def index
-    @photos = Photo.all
-  end
-
-  def user_index
-    @photos = current_user.photos.all
-  end
+  # def index
+  #   @photos = Photo.all
+  # end
+  #
+  # def user_index
+  #   @photos = current_user.photos.all
+  # end
   # GET /photos/1
   # GET /photos/1.json
   def show
   end
 
   # GET /photos/new
-  def new
-    #create a new instance within the user photos column
-  end
+  # def new
+  #   #create a new instance within the user photos column
+  # end
 
   # GET /photos/1/edit
-  def edit
-  end
+  # def edit
+  # end
 
   # POST /photos
   # POST /photos.json
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
-    redirect_to photo_path(@itinerary)
+    redirect_to itinerary_path(@itinerary)
   end
 
   # PATCH/PUT /photos/1
   # PATCH/PUT /photos/1.json
-  def update
-    respond_to do |format|
-      if @photo.update(photo_params)
-        format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
-        format.json { render :show, status: :ok, location: @photo }
-      else
-        format.html { render :edit }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  # def update
+  #   respond_to do |format|
+  #     if @photo.update(photo_params)
+  #       format.html { redirect_to @photo, notice: 'Photo was successfully updated.' }
+  #       format.json { render :show, status: :ok, location: @photo }
+  #     else
+  #       format.html { render :edit }
+  #       format.json { render json: @photo.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   # DELETE /photos/1
   # DELETE /photos/1.json

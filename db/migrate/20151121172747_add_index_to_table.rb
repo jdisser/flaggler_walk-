@@ -1,5 +1,5 @@
 class AddIndexToTable < ActiveRecord::Migration
   def change
-    add_reference :photos, :itineraries, index: true
+    add_reference :photos, :itinerary, index: true
   end
 end

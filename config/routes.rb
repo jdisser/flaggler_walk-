@@ -4,8 +4,11 @@ Rails.application.routes.draw do
   get '/userphotos' => 'photos#user_index'
   get '/useritineraries' => 'itineraries#user_index'
 
-  resources :photos
-  resources :itineraries
+
+  resources :itineraries do
+    resources :photos
+  end
+  
   resources :users
 
   # The priority is based upon order of creation: first created -> highest priority.

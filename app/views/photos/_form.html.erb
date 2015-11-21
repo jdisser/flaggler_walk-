@@ -1,18 +1,7 @@
 
 
-<%= form_for(@itinerary, @itinerary.photos.new) do |f| %>
-  <% if @itinerary.photos.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@itinerary.photos.errors.count, "error") %> prohibited this photo from being saved:</h2>
-
-      <ul>
-      <% @itinerary.photos.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for([@itinerary, @itinerary.photos.new]) do |f| %>
+  
   <div class="field">
     <%# f.label :picture %>
     <%= f.file_field :picture %>
