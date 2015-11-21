@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-
+gem 'exif'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.4'
 # Use sqlite3 as the database for Active Record
@@ -43,7 +43,7 @@ gem 'mini_magick'
 # gem 'unicorn'
 group :production do
   gem 'rails_12factor'
-end 
+end
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
