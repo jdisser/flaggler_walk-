@@ -8,7 +8,7 @@ class ItinerariesController < ApplicationController
   end
 
   def user_index
-    @itineraries = current_user.itineraries.all
+    @itineraries = Itineraries.all
   end
 
   # GET /itineraries/1
@@ -18,21 +18,22 @@ class ItinerariesController < ApplicationController
 
   # GET /itineraries/new
   def new
-    @itinerary = current_user.itineraries.new
+    @itinerary = Itinerary.new
   end
 
   # GET /itineraries/1/edit
   def edit
+
   end
 
   # POST /itineraries
   # POST /itineraries.json
   def create
-    @itinerary = current_user.itineraries.new(itinerary_params)
+    @itinerary = Itinerary.new(itinerary_params)
 
     respond_to do |format|
       if @itinerary.save
-        format.html { redirect_to @itinerary, notice: 'Itinerary was successfully created.' }
+        format.html { redirect_to edit_itinerary_path(@itinerary), notice: 'Itinerary was successfully created.' }
         format.json { render :show, status: :created, location: @itinerary }
       else
         format.html { render :new }
@@ -68,7 +69,7 @@ class ItinerariesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_itinerary
-      @itinerary = current_user.itineraries.find(params[:id])
+      @itinerary = Itinerary.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
