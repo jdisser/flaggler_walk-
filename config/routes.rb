@@ -1,7 +1,13 @@
 Rails.application.routes.draw do
+  root to: 'sessions#new'
+
+  get '/userphotos' => 'photos#user_index'
+  get '/useritineraries' => 'itineraries#user_index'
+
   resources :photos
   resources :itineraries
   resources :users
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

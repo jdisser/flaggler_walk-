@@ -1,12 +1,16 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-
+  before_action :require_logged_in
+  #adjust for public pages
   # GET /photos
   # GET /photos.json
   def index
     @photos = Photo.all
   end
 
+  def user_index
+    @photos = current_user.photos.all
+  end
   # GET /photos/1
   # GET /photos/1.json
   def show
@@ -14,7 +18,8 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @photo = Photo.new
+    @photo = current_user.photos.new
+    #create a new instance within the user photos column
   end
 
   # GET /photos/1/edit
@@ -24,7 +29,7 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = Photo.new(photo_params)
+    @photo = current_user.photos.new(photo_params)
 
     respond_to do |format|
       if @photo.save
@@ -64,7 +69,7 @@ class PhotosController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_photo
-      @photo = Photo.find(params[:id])
+      @photo = current_user.photos.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
