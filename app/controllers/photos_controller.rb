@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
-    redirect_to itinerary_path(@itinerary)
+    redirect_to edit_itinerary_path(@itinerary)
   end
 
   # PATCH/PUT /photos/1

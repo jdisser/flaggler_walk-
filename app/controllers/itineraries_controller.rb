@@ -23,6 +23,7 @@ class ItinerariesController < ApplicationController
 
   # GET /itineraries/1/edit
   def edit
+
   end
 
   # POST /itineraries
@@ -32,7 +33,7 @@ class ItinerariesController < ApplicationController
 
     respond_to do |format|
       if @itinerary.save
-        format.html { redirect_to @itinerary, notice: 'Itinerary was successfully created.' }
+        format.html { redirect_to edit_itinerary_path(@itinerary), notice: 'Itinerary was successfully created.' }
         format.json { render :show, status: :created, location: @itinerary }
       else
         format.html { render :new }
