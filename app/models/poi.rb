@@ -1,3 +1,3 @@
 class Poi < ActiveRecord::Base
-  belongs_to :itinerary
+  # belongs_to :itinerary
 end

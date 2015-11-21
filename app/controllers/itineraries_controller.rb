@@ -8,7 +8,7 @@ class ItinerariesController < ApplicationController
   end
 
   def user_index
-    @itineraries = current_user.itineraries.all
+    @itineraries = Itineraries.all
   end
 
   # GET /itineraries/1
@@ -18,7 +18,7 @@ class ItinerariesController < ApplicationController
 
   # GET /itineraries/new
   def new
-    @itinerary = current_user.itineraries.new
+    @itinerary = Itinerary.new
   end
 
   # GET /itineraries/1/edit

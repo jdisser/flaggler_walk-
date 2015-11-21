@@ -1,10 +1,12 @@
-<%= form_for(@photo) do |f| %>
-  <% if @photo.errors.any? %>
+
+
+<%= form_for(@itinerary, @itinerary.photos.new) do |f| %>
+  <% if @itinerary.photos.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@photo.errors.count, "error") %> prohibited this photo from being saved:</h2>
+      <h2><%= pluralize(@itinerary.photos.errors.count, "error") %> prohibited this photo from being saved:</h2>
 
       <ul>
-      <% @photo.errors.full_messages.each do |message| %>
+      <% @itinerary.photos.errors.full_messages.each do |message| %>
         <li><%= message %></li>
       <% end %>
       </ul>
@@ -12,18 +14,9 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br>
-    <%= f.text_field :title %>
-  </div>
-
-  <div class="field">
-    <%= f.label :picture %><br>
+    <%# f.label :picture %>
     <%= f.file_field :picture %>
   </div>
-  <!-- <div class="field"> -->
-    <!-- <%= f.label :poi_id %><br> -->
-    <!-- <%= f.text_field :poi_id %> -->
-  <!-- </div> -->
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -1,6 +1,6 @@
 class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
-  before_action :require_logged_in
+  # before_action :require_logged_in
   #adjust for public pages
   # GET /photos
   # GET /photos.json
@@ -18,7 +18,6 @@ class PhotosController < ApplicationController
 
   # GET /photos/new
   def new
-    @photo = current_user.photos.new
     #create a new instance within the user photos column
   end
 
@@ -29,17 +28,9 @@ class PhotosController < ApplicationController
   # POST /photos
   # POST /photos.json
   def create
-    @photo = current_user.photos.new(photo_params)
-
-    respond_to do |format|
-      if @photo.save
-        format.html { redirect_to @photo, notice: 'Photo was successfully created.' }
-        format.json { render :show, status: :created, location: @photo }
-      else
-        format.html { render :new }
-        format.json { render json: @photo.errors, status: :unprocessable_entity }
-      end
-    end
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @photo = @itinerary.photos.create(photo_params)
+    redirect_to photo_path(@itinerary)
   end
 
   # PATCH/PUT /photos/1

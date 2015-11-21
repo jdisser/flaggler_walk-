@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  root to: "itineraries#new"
 
   get '/userphotos' => 'photos#user_index'
   get '/useritineraries' => 'itineraries#user_index'
