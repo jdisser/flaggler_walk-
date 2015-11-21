@@ -13,14 +13,14 @@ class PhotosController < ApplicationController
   # end
   # GET /photos/1
   # GET /photos/1.json
-  def show
-  end
+  # def show
+  # end
 
   # GET /photos/new
-  def new
-    @itinerary = Itinerary.find(params[:itinerary_id])
-    @photo = @itinerary.photos.new
-  end
+  # def new
+  #   @itinerary = Itinerary.find(params[:itinerary_id])
+  #   @photo = @itinerary.photos.new
+  # end
 
   # GET /photos/1/edit
   # def edit
@@ -31,7 +31,7 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
-    redirect_to new_itinerary_photo_path(@photo)
+    redirect_to itinerary_path(@itinerary)
   end
 
   # PATCH/PUT /photos/1
@@ -66,6 +66,6 @@ class PhotosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
-      params.require(:photo).permit(:title, :latitude, :longitude, :picture, :poi_id, :user_id)
+      params.require(:photo).permit(:title, :latitude, :longitude, :itinerary_id, :picture, :poi_id, :user_id)
     end
 end

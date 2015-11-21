@@ -1,6 +1,6 @@
 
 
-<%= form_for([@itinerary, @photo]) do |f| %>
+<%= form_for([@itinerary, @itinerary.photos.new]) do |f| %>
   <div class="field">
     <%# f.label :picture %>
     <%= f.file_field :picture %>
