@@ -17,9 +17,10 @@ class PhotosController < ApplicationController
   end
 
   # GET /photos/new
-  # def new
-  #   #create a new instance within the user photos column
-  # end
+  def new
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @photo = @itinerary.photos.new
+  end
 
   # GET /photos/1/edit
   # def edit
