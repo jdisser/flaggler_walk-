@@ -14,6 +14,12 @@ class PhotosController < ApplicationController
   # GET /photos/1
   # GET /photos/1.json
   def show
+
+  end
+
+  def index
+    @itinerary = Itinerary.find(params[:itinerary_id])
+    @photos = @itinerary.photos.all
   end
 
   # GET /photos/new
@@ -75,8 +81,8 @@ class PhotosController < ApplicationController
     end
 
     def set_gps_data
-      @data = Exif::Data.new("/Users/jrdissermac/Desktop/wyncode/flaggler_walk-/public/#{@photo.picture_url}")
-      @photo.longitude = @data.gps_longitude
+      @data = Exif::Data.new("/Users/mr1monkey/documents/flaggler_walk-/public/#{@photo.picture_url}")
+      @photo.longitude = -@data.gps_longitude
       @photo.latitude = @data.gps_latitude
       @photo.save
     end
