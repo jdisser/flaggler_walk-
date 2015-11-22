@@ -13,8 +13,8 @@ class PhotosController < ApplicationController
   # end
   # GET /photos/1
   # GET /photos/1.json
-  # def show
-  # end
+  def show
+  end
 
   # GET /photos/new
   # def new
@@ -31,6 +31,10 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
+    puts @photo.inspect
+    puts @photo.valid?
+    puts @photo.errors.messages.inspect
+    puts "above"
     redirect_to edit_itinerary_path(@itinerary)
   end
 
