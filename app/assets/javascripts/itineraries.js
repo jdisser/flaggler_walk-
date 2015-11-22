@@ -33,7 +33,7 @@ function initialize() {
             $.ajax({
                 'async': false,
                 'global': false,
-                'url': "/itineraries/4/photos.json",
+                'url': "/itineraries/40/photos.json",
                 'dataType': "json",
                 'success': function (data) {
                      json = data;
@@ -41,12 +41,12 @@ function initialize() {
             });
             return json;
         })();
-  var json2 = Number(json[0].latitude);
-  var json3 = -Number(json[0].longitude);
-  var json4 = Number(json[1].latitude);
-  var json5 = -Number(json[1].longitude);
-  var json6 = Number(json[2].latitude);
-  var json7 = -Number(json[2].longitude);
+  var json2 = Number(json[3].latitude);
+  var json3 = -Number(json[3].longitude);
+  var json4 = Number(json[4].latitude);
+  var json5 = -Number(json[4].longitude);
+  var json6 = Number(json[3].latitude);
+  var json7 = -Number(json[3].longitude);
   // var json8 = Number(json[3].latitude);
   // var json9 = -Number(json[3].longitude);
   // var json10 = Number(json[4].latitude);
@@ -58,7 +58,7 @@ function initialize() {
     destination: new google.maps.LatLng(json4, json5),
     waypoints: [
       { location: new google.maps.LatLng(json6, json7) }
-      
+
       // { location: new google.maps.LatLng(json8, json9) },
       // { location: new google.maps.LatLng(json10, json11) }
     ],
