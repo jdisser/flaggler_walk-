@@ -31,6 +31,7 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
+    set_gps_data
     puts @photo.inspect
     puts @photo.valid?
     puts @photo.errors.messages.inspect
@@ -71,5 +72,12 @@ class PhotosController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def photo_params
       params.require(:photo).permit(:title, :latitude, :longitude, :itinerary_id, :picture, :poi_id, :user_id)
+    end
+
+    def set_gps_data
+      @data = Exif::Data.new("/Users/jrdissermac/Desktop/wyncode/flaggler_walk-/public/#{@photo.picture_url}")
+      @photo.longitude = @data.gps_longitude
+      @photo.latitude = @data.gps_latitude
+      @photo.save
     end
 end

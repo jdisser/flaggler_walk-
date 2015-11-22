@@ -4,4 +4,7 @@
     <%# <% end %> %>
 <%# <% end %>  %>
 
-<%= image_tag(photo.picture_url) %>
+<%= image_tag(photo.picture_url(:thumb)) %>
+
+  <p>Latitude: <%= photo.latitude  %></p>
+  <p>Longitude: <%= photo.longitude  %></p>
