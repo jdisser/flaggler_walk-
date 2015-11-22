@@ -14,7 +14,7 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/1
   # GET /itineraries/1.json
   def show
-
+    @itinerary.photos.all
   end
 
   # GET /itineraries/new
