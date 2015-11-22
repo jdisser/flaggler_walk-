@@ -14,6 +14,7 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/1
   # GET /itineraries/1.json
   def show
+
   end
 
   # GET /itineraries/new
@@ -29,6 +30,7 @@ class ItinerariesController < ApplicationController
   # POST /itineraries
   # POST /itineraries.json
   def create
+    puts "i see this"
     @itinerary = Itinerary.new(itinerary_params)
 
     respond_to do |format|

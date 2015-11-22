@@ -1,0 +1,10 @@
+<%# <% @itineraries.photos.in_groups_of(4) do |group| %> %>
+    <%# <% group.compact.each do |photo| %> %>
+        <%# <%= link_to image_tag(photo.picture_url(:thumb), id: photo.id, class:"img-responsive photo-index"), photo%> %>
+    <%# <% end %> %>
+<%# <% end %>  %>
+
+<%= image_tag(photo.picture_url(:thumb)) %>
+
+  <p>Latitude: <%= photo.latitude  %></p>
+  <p>Longitude: <%= photo.longitude  %></p>
