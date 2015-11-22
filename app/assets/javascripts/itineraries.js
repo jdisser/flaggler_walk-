@@ -28,12 +28,14 @@ function initialize() {
   }
 // ​this route /itineraries/:itinerary_id/photos(.:format)
   function setMarkers(map) {
+    var itin = document.getElementById("trail").innerHTML;
+    console.log(itin);
     var json = (function () {
             var json = null;
             $.ajax({
                 'async': false,
                 'global': false,
-                'url': "/itineraries/40/photos.json",
+                'url': "/itineraries/" + itin + "/photos.json",
                 'dataType': "json",
                 'success': function (data) {
                      json = data;
