@@ -1,10 +1,10 @@
 jQuery(function($) {
-​
+
     var script = document.createElement('script');
     script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize";
     document.body.appendChild(script);
-​
 });
+
 var lat;
 var lon;
 if(navigator.geolocation) {
@@ -15,7 +15,7 @@ if(navigator.geolocation) {
     console.log(lon);
   });
   }
-​
+
 var map;
 function initialize() {
   var mapOptions = {
@@ -33,7 +33,7 @@ function initialize() {
             $.ajax({
                 'async': false,
                 'global': false,
-                'url': "/itineraries/1/photos.json",
+                'url': "/itineraries/4/photos.json",
                 'dataType': "json",
                 'success': function (data) {
                      json = data;
@@ -43,30 +43,29 @@ function initialize() {
         })();
   var json2 = Number(json[0].latitude);
   var json3 = -Number(json[0].longitude);
-  var json4 = Number(json[6].latitude);
-  var json5 = -Number(json[6].longitude);
-  var json6 = Number(json[4].latitude);
-  var json7 = -Number(json[4].longitude);
-  var json8 = Number(json[1].latitude);
-  var json9 = -Number(json[1].longitude);
-  var json10 = Number(json[3].latitude);
-  var json11 = -Number(json[3].longitude);
-​
+  var json4 = Number(json[1].latitude);
+  var json5 = -Number(json[1].longitude);
+  var json6 = Number(json[2].latitude);
+  var json7 = -Number(json[2].longitude);
+  // var json8 = Number(json[3].latitude);
+  // var json9 = -Number(json[3].longitude);
+  // var json10 = Number(json[4].latitude);
+  // var json11 = -Number(json[4].longitude);
 
-​
   var directionsService = new google.maps.DirectionsService();
   var directionsRequest = {
     origin: new google.maps.LatLng(json2, json3),
     destination: new google.maps.LatLng(json4, json5),
     waypoints: [
-      { location: new google.maps.LatLng(json6, json7) },
-      { location: new google.maps.LatLng(json8, json9) },
-      { location: new google.maps.LatLng(json10, json11) }
+      { location: new google.maps.LatLng(json6, json7) }
+      
+      // { location: new google.maps.LatLng(json8, json9) },
+      // { location: new google.maps.LatLng(json10, json11) }
     ],
     travelMode: google.maps.DirectionsTravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC
   };
-​
+
   directionsService.route(
           directionsRequest,
           function(response, status)
@@ -82,7 +81,4 @@ function initialize() {
               ;
           }
         );
-​
-​
-​
   }
