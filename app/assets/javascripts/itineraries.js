@@ -28,12 +28,14 @@ function initialize() {
   }
 // ​this route /itineraries/:itinerary_id/photos(.:format)
   function setMarkers(map) {
+    var itin = document.getElementById("trail").innerHTML;
+    console.log(itin);
     var json = (function () {
             var json = null;
             $.ajax({
                 'async': false,
                 'global': false,
-                'url': "/itineraries/4/photos.json",
+                'url': "/itineraries/" + itin + "/photos.json",
                 'dataType': "json",
                 'success': function (data) {
                      json = data;
@@ -41,27 +43,25 @@ function initialize() {
             });
             return json;
         })();
-  var json2 = Number(json[0].latitude);
-  var json3 = -Number(json[0].longitude);
-  var json4 = Number(json[1].latitude);
-  var json5 = -Number(json[1].longitude);
-  var json6 = Number(json[2].latitude);
-  var json7 = -Number(json[2].longitude);
-  // var json8 = Number(json[3].latitude);
-  // var json9 = -Number(json[3].longitude);
-  // var json10 = Number(json[4].latitude);
-  // var json11 = -Number(json[4].longitude);
+    var trailOrigin;
+    var trailDestination;
+    var trailPics;
+    if (json.length > 2) {
+      var first = json.shift();
+      trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
+      var last = json.pop();
+      trailDestination = new google.maps.LatLng(last.latitude, last.longitude);
+      trailPics= [];
+      for(var i = 0; i < json.length; i++) {
+        trailPics.push({ location: new google.maps.LatLng(json[i].latitude, json[i].longitude) });
+      }
+    }
 
   var directionsService = new google.maps.DirectionsService();
   var directionsRequest = {
-    origin: new google.maps.LatLng(json2, json3),
-    destination: new google.maps.LatLng(json4, json5),
-    waypoints: [
-      { location: new google.maps.LatLng(json6, json7) }
-      
-      // { location: new google.maps.LatLng(json8, json9) },
-      // { location: new google.maps.LatLng(json10, json11) }
-    ],
+    origin: trailOrigin,
+    destination: trailDestination,
+    waypoints: trailPics,
     travelMode: google.maps.DirectionsTravelMode.WALKING,
     unitSystem: google.maps.UnitSystem.METRIC
   };
