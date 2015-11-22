@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151121001835) do
+ActiveRecord::Schema.define(version: 20151121172747) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +42,13 @@ ActiveRecord::Schema.define(version: 20151121001835) do
     t.string   "picture"
     t.integer  "poi_id"
     t.integer  "user_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
     t.string   "trail"
+    t.integer  "itinerary_id"
   end
 
+  add_index "photos", ["itinerary_id"], name: "index_photos_on_itinerary_id", using: :btree
   add_index "photos", ["poi_id"], name: "index_photos_on_poi_id", using: :btree
   add_index "photos", ["trail"], name: "index_photos_on_trail", using: :btree
   add_index "photos", ["user_id"], name: "index_photos_on_user_id", using: :btree
