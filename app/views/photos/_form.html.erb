@@ -5,6 +5,8 @@
     <%# f.label :picture %>
     <%= f.file_field :picture %>
   </div>
+    <%= f.hidden_field :latitude, :value => "", id: "latitude" %>
+    <%= f.hidden_field :longitude, :value => "", id: "longitude" %>
   <div class="actions">
     <%= f.submit %>
   </div>

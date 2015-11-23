@@ -82,3 +82,14 @@ function initialize() {
           }
         );
   }
+
+$(document).on("page:change", function() {
+  $('#photo_picture').on('click', function() {
+    navigator.geolocation.getCurrentPosition(function(position){
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      document.getElementById('latitude').value = String(lat);
+      document.getElementById('longitude').value = String(lon);
+    });
+  });
+});
