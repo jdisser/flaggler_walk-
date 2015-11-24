@@ -27,28 +27,27 @@ function initialize() {
   function setMarkers(map) {
     var itin = document.getElementById("trail").innerHTML;
     var json = (function () {
-            var json = null;
+            var jsonData = null;
             $.ajax({
                 'async': false,
                 'global': false,
                 'url': "/itineraries/" + itin + "/photos.json",
                 'dataType': "json",
                 'success': function (data) {
-                     json = data;
+                     jsonData = data;
                  }
             });
-            return json;
+            return jsonData;
         })();
+
     var trailOrigin;
     var trailDestination;
     var trailPics;
     if (json.length > 2) {
       var first = json.shift();
       trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
-      console.log(trailOrigin);
       var last = json.pop();
       trailDestination = new google.maps.LatLng(last.latitude, last.longitude);
-      console.log(trailDestination);
       trailPics= [];
       for(var i = 0; i < json.length; i++) {
         trailPics.push({ location: new google.maps.LatLng(json[i].latitude, json[i].longitude) });
