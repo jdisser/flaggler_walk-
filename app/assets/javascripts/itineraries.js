@@ -1,3 +1,5 @@
+
+$(document).on("page:change", function() {
 jQuery(function($) {
 
     var script = document.createElement('script');
@@ -83,6 +85,7 @@ function initialize() {
           }
         );
   }
+});
 
 $(document).on("page:change", function() {
   $('#photo_picture').on('click', function() {
