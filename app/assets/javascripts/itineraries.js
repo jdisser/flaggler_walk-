@@ -16,7 +16,7 @@ var map;
 function initialize() {
   var mapOptions = {
     zoom: 18,
-    center: {lat: lat, lng: lon},
+    center: {lat: 26.1284003, lng: -80.1451536},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
   console.log(lat);
