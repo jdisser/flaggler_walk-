@@ -44,12 +44,16 @@ class ItinerariesController < ApplicationController
 
   def update
     respond_to do |format|
-      if @itinerary.update(itinerary_params)
-        format.html { redirect_to @itinerary, notice: 'Itinerary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @itinerary }
+      if @itinerary.photos.count < 2
+       redirect_to edit_itinerary_path(@itinerary), notice: 'Must have a minimum 2 photos!'
       else
-        format.html { render :edit }
-        format.json { render json: @itinerary.errors, status: :unprocessable_entity }
+        if @itinerary.update(itinerary_params)
+          format.html { redirect_to @itinerary, notice: 'Itinerary was successfully updated.' }
+          format.json { render :show, status: :ok, location: @itinerary }
+        else
+          format.html { render :edit }
+          format.json { render json: @itinerary.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
