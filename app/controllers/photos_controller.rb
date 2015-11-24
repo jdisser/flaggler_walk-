@@ -37,11 +37,7 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
-    set_gps_data
-    puts @photo.inspect
-    puts @photo.valid?
-    puts @photo.errors.messages.inspect
-    puts "above"
+    
     redirect_to edit_itinerary_path(@itinerary)
   end
 
@@ -81,7 +77,10 @@ class PhotosController < ApplicationController
     end
 
     def set_gps_data
-      @data = Exif::Data.new("/Users/mr1monkey/documents/flaggler_walk-/public/#{@photo.picture_url}")
+      # s3_asset = "https://s3-eu-west-1.amazonaws.com"
+      # s3_bucket = "picpointcloud"
+      # s3 = "picpointcloud.s3-website-us-east-1.amazonaws.com"
+      @data = Exif::Data.new("#{Rails.root}/tmp/uploads/")
       @photo.longitude = -@data.gps_longitude
       @photo.latitude = @data.gps_latitude
       @photo.save

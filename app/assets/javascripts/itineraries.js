@@ -1,9 +1,5 @@
-jQuery(function($) {
 
-    var script = document.createElement('script');
-    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize";
-    document.body.appendChild(script);
-});
+
 
 var lat;
 var lon;
@@ -20,33 +16,34 @@ var map;
 function initialize() {
   var mapOptions = {
     zoom: 18,
-    center: {lat: lat, lng: lon},
+    center: {lat: 26.1284003, lng: -80.1451536},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
   setMarkers(map);
   }
 // ​this route /itineraries/:itinerary_id/photos(.:format)
   function setMarkers(map) {
     var itin = document.getElementById("trail").innerHTML;
-    console.log(itin);
     var json = (function () {
-            var json = null;
+            var jsonData = null;
             $.ajax({
                 'async': false,
                 'global': false,
                 'url': "/itineraries/" + itin + "/photos.json",
                 'dataType': "json",
                 'success': function (data) {
-                     json = data;
+                     jsonData = data;
                  }
             });
-            return json;
+            return jsonData;
         })();
+
     var trailOrigin;
     var trailDestination;
     var trailPics;
-    if (json.length > 2) {
+    if (json.length > 1) {
       var first = json.shift();
       trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
       var last = json.pop();
@@ -82,3 +79,15 @@ function initialize() {
           }
         );
   }
+
+
+$(document).on("page:change", function() {
+  $('#photo_picture').on('click', function() {
+    navigator.geolocation.getCurrentPosition(function(position){
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      document.getElementById('latitude').value = String(lat);
+      document.getElementById('longitude').value = String(lon);
+    });
+  });
+});
