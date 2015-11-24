@@ -1,5 +1,5 @@
 
-$(document).ready(function() {
+
 
 var lat;
 var lon;
@@ -79,7 +79,7 @@ function initialize() {
           }
         );
   }
-});
+
 
 $(document).on("page:change", function() {
   $('#photo_picture').on('click', function() {
