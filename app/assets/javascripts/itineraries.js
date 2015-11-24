@@ -1,5 +1,5 @@
 
-$(document).on("page:change", function() {
+$(document).ready(function() {
 
 var lat;
 var lon;
