@@ -1,11 +1,5 @@
 
 $(document).on("page:change", function() {
-jQuery(function($) {
-
-    var script = document.createElement('script');
-    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize";
-    document.body.appendChild(script);
-});
 
 var lat;
 var lon;
