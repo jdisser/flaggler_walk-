@@ -10,9 +10,9 @@ class SessionsController < ApplicationController
         session[:user_id] = @user.id
         redirect_to photos_path
         #this will change later it will indicate the
-        #starting point for villagers after login  
+        #starting point for villagers after login
       else
         render action: 'new'
       end
-   end
+  end
 end
