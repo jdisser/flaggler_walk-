@@ -2,8 +2,7 @@ class PhotosController < ApplicationController
   before_action :set_photo, only: [:show, :edit, :update, :destroy]
   # before_action :require_logged_in
   #adjust for public pages
-  # GET /photos
-  # GET /photos.json
+
   # def index
   #   @photos = Photo.all
   # end
@@ -11,8 +10,7 @@ class PhotosController < ApplicationController
   # def user_index
   #   @photos = current_user.photos.all
   # end
-  # GET /photos/1
-  # GET /photos/1.json
+
   def show
 
   end
@@ -37,7 +35,7 @@ class PhotosController < ApplicationController
   def create
     @itinerary = Itinerary.find(params[:itinerary_id])
     @photo = @itinerary.photos.create(photo_params)
-    
+
     redirect_to edit_itinerary_path(@itinerary)
   end
 
@@ -75,11 +73,8 @@ class PhotosController < ApplicationController
     def photo_params
       params.require(:photo).permit(:title, :latitude, :longitude, :itinerary_id, :picture, :poi_id, :user_id)
     end
-
+    # future use extract data for premium users
     def set_gps_data
-      # s3_asset = "https://s3-eu-west-1.amazonaws.com"
-      # s3_bucket = "picpointcloud"
-      # s3 = "picpointcloud.s3-website-us-east-1.amazonaws.com"
       @data = Exif::Data.new("#{Rails.root}/tmp/uploads/")
       @photo.longitude = -@data.gps_longitude
       @photo.latitude = @data.gps_latitude
