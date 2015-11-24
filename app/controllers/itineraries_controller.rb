@@ -1,8 +1,7 @@
 class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
-  # before_action :require_logged_in
-  # GET /itineraries
-  # GET /itineraries.json
+
+
   def index
     @itineraries = Itinerary.all
   end
@@ -11,29 +10,23 @@ class ItinerariesController < ApplicationController
     @itineraries = Itineraries.all
   end
 
-  # GET /itineraries/1
-  # GET /itineraries/1.json
   def show
     @itinerary.photos.all
-
+    # set show action to respond to AJAX request
     respond_to do |format|
       format.html
       format.js
     end
   end
 
-  # GET /itineraries/new
   def new
     @itinerary = Itinerary.new
   end
 
-  # GET /itineraries/1/edit
   def edit
 
   end
 
-  # POST /itineraries
-  # POST /itineraries.json
   def create
     puts "i see this"
     @itinerary = Itinerary.new(itinerary_params)
@@ -49,22 +42,22 @@ class ItinerariesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /itineraries/1
-  # PATCH/PUT /itineraries/1.json
   def update
     respond_to do |format|
-      if @itinerary.update(itinerary_params)
-        format.html { redirect_to @itinerary, notice: 'Itinerary was successfully updated.' }
-        format.json { render :show, status: :ok, location: @itinerary }
+      if @itinerary.photos.count < 2
+       redirect_to edit_itinerary_path(@itinerary), notice: 'Must have a minimum 2 photos!'
       else
-        format.html { render :edit }
-        format.json { render json: @itinerary.errors, status: :unprocessable_entity }
+        if @itinerary.update(itinerary_params)
+          format.html { redirect_to @itinerary, notice: 'Itinerary was successfully updated.' }
+          format.json { render :show, status: :ok, location: @itinerary }
+        else
+          format.html { render :edit }
+          format.json { render json: @itinerary.errors, status: :unprocessable_entity }
+        end
       end
     end
   end
 
-  # DELETE /itineraries/1
-  # DELETE /itineraries/1.json
   def destroy
     @itinerary.destroy
     respond_to do |format|
