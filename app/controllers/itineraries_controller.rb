@@ -15,6 +15,11 @@ class ItinerariesController < ApplicationController
   # GET /itineraries/1.json
   def show
     @itinerary.photos.all
+
+    respond_to do |format|
+      format.html
+      format.js
+    end
   end
 
   # GET /itineraries/new

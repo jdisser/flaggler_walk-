@@ -6,5 +6,7 @@
 <%= render @itinerary.photos %>
 
 
-
 <%= link_to 'Back', itineraries_path %>
+<%= content_tag(:p, @itinerary.id, id: "trail" ) %>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize"></script>
+<!-- <p id="trail">40</p> -->
