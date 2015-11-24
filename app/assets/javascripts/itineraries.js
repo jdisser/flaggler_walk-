@@ -1,7 +1,7 @@
 jQuery(function($) {
 
     var script = document.createElement('script');
-    script.src = "http://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize";
+    script.src = "https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize";
     document.body.appendChild(script);
 });
 
