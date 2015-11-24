@@ -23,6 +23,7 @@ function initialize() {
     center: {lat: lat, lng: lon},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
+  console.log(lat);
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
   setMarkers(map);
   }
