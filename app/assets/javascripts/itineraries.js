@@ -43,7 +43,7 @@ function initialize() {
     var trailOrigin;
     var trailDestination;
     var trailPics;
-    if (json.length > 2) {
+    if (json.length > 1) {
       var first = json.shift();
       trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
       var last = json.pop();
