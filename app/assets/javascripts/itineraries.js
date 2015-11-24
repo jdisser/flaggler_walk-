@@ -19,14 +19,13 @@ function initialize() {
     center: {lat: 26.1284003, lng: -80.1451536},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
-  console.log(lat);
+
   map = new google.maps.Map(document.getElementById("map"), mapOptions);
   setMarkers(map);
   }
 // ​this route /itineraries/:itinerary_id/photos(.:format)
   function setMarkers(map) {
     var itin = document.getElementById("trail").innerHTML;
-    console.log(itin);
     var json = (function () {
             var json = null;
             $.ajax({
@@ -46,8 +45,10 @@ function initialize() {
     if (json.length > 2) {
       var first = json.shift();
       trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
+      console.log(trailOrigin);
       var last = json.pop();
       trailDestination = new google.maps.LatLng(last.latitude, last.longitude);
+      console.log(trailDestination);
       trailPics= [];
       for(var i = 0; i < json.length; i++) {
         trailPics.push({ location: new google.maps.LatLng(json[i].latitude, json[i].longitude) });
