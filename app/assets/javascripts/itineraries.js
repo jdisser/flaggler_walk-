@@ -1,6 +1,6 @@
 
 
-
+// capture users location
 var lat;
 var lon;
 if(navigator.geolocation) {
@@ -11,7 +11,7 @@ if(navigator.geolocation) {
     console.log(lon);
   });
   }
-
+// initialize the map
 var map;
 function initialize() {
   var mapOptions = {
@@ -39,7 +39,7 @@ function initialize() {
             });
             return jsonData;
         })();
-
+    // parse the above JSON object for direction request
     var trailOrigin;
     var trailDestination;
     var trailPics;
@@ -80,7 +80,7 @@ function initialize() {
         );
   }
 
-
+// capture GPS coords for each picture added to itinerary
 $(document).on("page:change", function() {
   $('#photo_picture').on('click', function() {
     navigator.geolocation.getCurrentPosition(function(position){
