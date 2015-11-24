@@ -1,67 +1,42 @@
 <p id="notice"><%= notice %></p>
 
-<div class="container">
+<div class="container-fluid">
+<!-- start navigation  -->
   <div class="row">
-    <div class="col-4">
-      <p> Logo here </p></div>
-    <div class="col-sm-4"></div>
-
-
+    <div class="col-sm-12 text-right">
+      <button type="button" class="btn btn-info">
+        <a href="#">Sign in/up</a></button>
     </div>
-
-    </div>
-
   </div>
+<!--end naviagation -->
+<!--start header -->
   <div class="row">
-    <div class "col-sm-"
-    <div class="col-sm-4">
-      <h1>Follow a trail</h1>
-      <h3>Open your eyes</h3>
+    <div class="col-sm-6">
+      <%= image_tag 'pictraillogo.png', class:'logo' %>
     </div>
+    <div class="col-sm-6"></div>
+  </div>
+  <div class="row tagline1">
+    <div class="col-sm-12 text-center">
+      <h1>Follow a trail</h1>
+    </div>
+  </div>
+  <div class="row tagline2">
+    <div class="col-sm-12 text-center">
+      <h3 class='tagline'>Look up!</h3>
+    </div>
+  </div>
+</div>
+<!-- Start gallery of images that represent trails -->
 
-  <div>
+<div class="container-fluid">
+  <% @itineraries.each do |itinerary| %>
+    <h1><%= itinerary.title %></h1>
+  <% end %>
 </div>
 
 
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-      <th>Twitter</th>
-      <th>Facebook</th>
-      <th>Instagram</th>
-      <th>User</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
 
-  <tbody>
-    <% @itineraries.each do |itinerary| %>
-      <tr>
-        <td><%= itinerary.title %></td>
-        <td><%= itinerary.description %></td>
-        <td><%= itinerary.phone %></td>
-        <td><%= itinerary.address %></td>
-        <td><%= itinerary.city %></td>
-        <td><%= itinerary.state %></td>
-        <td><%= itinerary.zip %></td>
-        <td><%= itinerary.twitter %></td>
-        <td><%= itinerary.facebook %></td>
-        <td><%= itinerary.instagram %></td>
-        <td><%= itinerary.user %></td>
-        <td><%= link_to 'Show', itinerary %></td>
-        <td><%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
-        <td><%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
 
 <br>
 
