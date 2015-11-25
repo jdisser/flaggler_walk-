@@ -14,26 +14,89 @@ body{
 
 h1 {
   font-family: 'Rancho', cursive;
+  color: #3D7489;
+}
+
+button {
+  color: #FCFF00;
 }
 
 h3 {
   font-family: 'Rancho', cursive;
-  margin-top: -1em;
+  color: #DB8E5C;
 }
 
-
+.tagline {
+  padding-top: -3em;
+  padding-left: 4em;
+  margin-top: -2.5em;
+}
 .logo {
   width: 150px;
   height: 100%;
   margin-top: -4em;
 }
 
+.fa{
+  size: 4em;
+}
+.picpin {
+  width: 150px;
+  height: 100%;
+}
 .header{
   margin-top: -2em;
 }
 
 .tagline2{
   padding-top: -3em;
+}
+
+//Modify Buttons//
+btn {
+    padding: 14px 24px;
+    border: 0 none;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.btn:focus, .btn:active:focus, .btn.active:focus {
+    outline: 0 none;
+}
+
+.btn-primary {
+    background: #0099cc;
+    color: #ffffff;
+}
+
+.btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active, .open > .dropdown-toggle.btn-primary {
+    background: #33a6cc;
+}
+
+.btn-primary:active, .btn-primary.active {
+    background: #007299;
+    box-shadow: none;
+}
+
+.btn.outline {
+  background:none;
+  padding: 12px 22px;
+}
+
+.btn-primary.outline {
+  border: 2px solid #0099cc;
+  color: #0099cc;
+}
+
+.btn-primary.outline:hover, .btn-primary.outline:focus, .btn-primary.outline:active, .btn-primary.outline.active, .open > .dropdown-toggle.btn-primary {
+    color: #33a6cc;
+    border-color: #33a6cc;
+}
+.btn-primary.outline:active, .btn-primary.outline.active {
+    border-color: #007299;
+    color: #007299;
+    box-shadow: none;
 }
 //
 // // Tablet media query
