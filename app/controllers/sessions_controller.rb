@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
 
       if @user
         session[:user_id] = @user.id
-        redirect_to photos_path
+        redirect_to 'itineraries#user_index'
         #this will change later it will indicate the
         #starting point for villagers after login
       else
