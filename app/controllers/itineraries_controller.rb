@@ -7,11 +7,12 @@ class ItinerariesController < ApplicationController
   end
 
   def user_index
-    @itineraries = Itineraries.all
+    require_logged_in
+    @itineraries = current_user.itineraries.all
   end
 
   def show
-    @itinerary.photos.all
+
     # set show action to respond to AJAX request
     respond_to do |format|
       format.html
@@ -20,16 +21,18 @@ class ItinerariesController < ApplicationController
   end
 
   def new
-    @itinerary = Itinerary.new
+    require_logged_in
+    @itinerary = current_user.itineraries.new
   end
 
   def edit
+    require_logged_in
 
   end
 
   def create
     puts "i see this"
-    @itinerary = Itinerary.new(itinerary_params)
+    @itinerary = current_user.itineraries.new(itinerary_params)
 
     respond_to do |format|
       if @itinerary.save
@@ -43,6 +46,7 @@ class ItinerariesController < ApplicationController
   end
 
   def update
+    require_logged_in
     respond_to do |format|
       if @itinerary.photos.count < 2
        redirect_to edit_itinerary_path(@itinerary), notice: 'Must have a minimum 2 photos!'
@@ -59,6 +63,7 @@ class ItinerariesController < ApplicationController
   end
 
   def destroy
+    require_logged_in
     @itinerary.destroy
     respond_to do |format|
       format.html { redirect_to itineraries_url, notice: 'Itinerary was successfully destroyed.' }
@@ -69,7 +74,7 @@ class ItinerariesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_itinerary
-      @itinerary = Itinerary.find(params[:id])
+      @itinerary = current_user.itineraries.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
