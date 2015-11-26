@@ -1,15 +1,15 @@
 
 
 <%= form_for([@itinerary, @itinerary.photos.new]) do |f| %>
-  <div class="field">
-    <%# f.label :picture %>
-    <%= f.file_field :picture %>
-  </div>
+
+    <%= f.file_field :picture, id: "fileInput" %>
+
+  </button>
     <%= f.hidden_field :latitude, :value => "", id: "latitude" %>
     <%= f.hidden_field :longitude, :value => "", id: "longitude" %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "ADD", :id => "plusIcon" %>
   </div>
-  <%= puts @itinerary.photos %>
+  <%# puts @itinerary.photos %>
 
 <% end %>
