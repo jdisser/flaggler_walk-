@@ -36,19 +36,16 @@
 </div>
 <!-- End photo gallery of images that represent trails -->
 
-<!-- Navigation to previous trails and next trails -->
-<div class="container text-center">
-  <i class="fa fa-angle-double-left"></i>Previous Trails || More Trails<i class="fa fa-angle-double-right text-right"></i></p></div><br> #### Trails created since 2015
-</div>
+
 <!--end navigation -->
 
 
 
     <% @itineraries.each do |itinerary| %>
         <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
-        <%= link_to 'Show', itinerary %></td>
-        <%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
-        <%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <%# link_to 'Show', itinerary %></td>
+        <%# link_to 'Edit', edit_itinerary_path(itinerary) %></td>
+        <%# link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
 
 

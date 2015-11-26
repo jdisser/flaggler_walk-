@@ -7,8 +7,8 @@ class ItinerariesController < ApplicationController
   end
 
   def user_index
-    require_logged_in
-    @itineraries = current_user.itineraries.all
+    # require_logged_in
+    @itineraries = Itinerary.all
   end
 
   def show
@@ -31,7 +31,7 @@ class ItinerariesController < ApplicationController
   end
 
   def create
-    puts "i see this"
+    # puts "i see this"
     @itinerary = current_user.itineraries.new(itinerary_params)
 
     respond_to do |format|
