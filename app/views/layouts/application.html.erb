@@ -16,10 +16,14 @@
 <%= yield %>
 
 
-<div class="row">
-<%= " I am logged in, cabrones! #{@current_user.inspect}" %>
-<%= link_to 'LogOut', log_out_path, method: :delete %>
-<%= link_to 'LogIn', login_path %>
+
+<% if current_user.present?  %>
+  <%= " I am logged in as #{@current_user.username}" %>
+  <%= link_to 'LogOut', log_out_path, method: :delete %>
+<% else %>
+  <%= link_to 'LogIn', login_path %>
+<% end %>
+
 </div>
 </body>
 </html>
