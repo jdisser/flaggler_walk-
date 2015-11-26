@@ -12,8 +12,14 @@
 </head>
 <body>
 
+
 <%= yield %>
 
 
+<div class="row">
+<%= " I am logged in, cabrones! #{@current_user.inspect}" %>
+<%= link_to 'LogOut', log_out_path, method: :delete %>
+<%= link_to 'LogIn', login_path %>
+</div>
 </body>
 </html>

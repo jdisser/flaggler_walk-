@@ -1,9 +1,6 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:show, :edit, :update, :destroy]
 
-  def index
-    @users = User.all
-  end
 
   def show
   end
@@ -17,20 +14,11 @@ class UsersController < ApplicationController
 
   def create
     @user = User.new(user_params)
-      if @user.save
-        redirect_to root_path, notice: "Created user"
-      else
-        render action:'new'
-      end
 
-    respond_to do |format|
-      if @user.save
-        format.html { redirect_to @user, notice: 'User was successfully created.' }
-        format.json { render :show, status: :created, location: @user }
-      else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
+    if @user.save
+      redirect_to root_path, notice: "Created user"
+    else
+      render action:'new'
     end
   end
 
@@ -56,9 +44,9 @@ class UsersController < ApplicationController
 
   private
     # Use callbacks to share common setup or constraints between actions.
-    def set_user
-      @user = User.find(params[:id])
-    end
+    # def set_user
+    #   @user = User.find(params[:id])
+    # end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
