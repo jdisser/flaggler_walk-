@@ -1,4 +1,5 @@
-<%= form_for(@itinerary) do |f| %>
+<div class="container uploaderbox text-center">
+  <%= form_for(@itinerary) do |f| %>
   <% if @itinerary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@itinerary.errors.count, "error") %>
@@ -30,3 +31,4 @@
     <%= f.submit "Done", id: "view-map" %>
   </div>
 <% end %>
+</div>

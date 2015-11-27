@@ -4,10 +4,16 @@
 <p id="notice"><%= notice %></p>
 
 <!-- Page headline -->
-<div class="headline">
-  <h1>Follow a trail</h1>
+<div class="container headlinebox">
+  <div class="row headline">
+    <h1>Follow a trail</h1>
+  </div>
+  <div class="row tagline">
+    <h4>Look up!</h4>
+  </div>
 </div>
 
+<<<<<<< HEAD
 <!-- Map of trails near the user -->
 
 <!-- Start gallery of images that represent trails -->
@@ -16,7 +22,19 @@
     <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt: "No Picture"), itinerary, class:'picpin' %>
   <% end %>
 </div>
+=======
+
+<!-- Map of trails near the user -->
+
+<!-- Start gallery of images that represent trails -->
+    <div class="container-fluid text-center trailleadpic">
+      <% @itineraries.each do |itinerary| %>
+      <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!"), itinerary, class:'picpin' %>
+      <% end %>
+    </div>
+>>>>>>> 69548334dcd8c8f8dc4dacaee5fd76ab2e699819
 <!-- End photo gallery of images that represent trails -->
+
 
     <%#@itineraries.each do |itinerary| %>
         <%# link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
@@ -24,3 +42,15 @@
         <%# link_to 'Edit', edit_itinerary_path(itinerary) %>
         <%# link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%# end %>
+<<<<<<< HEAD
+=======
+
+
+
+
+
+
+
+<!-- This link will not be shown on public site  -->
+<!-- <%= link_to 'New Itinerary', new_itinerary_path %> -->
+>>>>>>> 69548334dcd8c8f8dc4dacaee5fd76ab2e699819

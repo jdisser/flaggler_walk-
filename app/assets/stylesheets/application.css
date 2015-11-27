@@ -16,43 +16,86 @@
 
 
 body {
-  background-color: #B0E5D8;
+  background-color: #B1E6D9;
   font-family: 'Rancho', 'cursive';
+  margin-bottom: 8%;
 }
 /*--header -- */
 .top {
   width: 100%;
   height: 20%;
+  margin: 0;
+  padding: 0;
 }
 
-.top .logo {
-  width: 18%;
+.loginstatus {
+  height: 50%;
+  text-align: right;
+  margin-right: 3em;
+  font-size: 1em;
+}
+
+.logo {
+  width: 10%;
   height: 100%;
   margin-top: -8%;
   margin-left: 75%;
 }
 
-.top .cityscape {
+.cityscape {
   width: 100%;
-  height: 100%;
-  margin: 1%;
+  height: auto;
 }
 
 /*--headline/tagline--*/
-.headline {
-  margin-top: -13%;
-  margin-left: 35%;
+.headlinebox {
+  width: 100%;
+  margin-top: -12%;
+  background-color: #B1E6D9;
 }
-// set Google map size, must have to show map
+
+.headline {
+  margin-left: 35%;
+  color: #057B71;
+}
+.tagline {
+  margin-top: -2%;
+  margin-left: 42%;
+  color: #0CA79C;
+}
+/*// set Google map size, must have to show map*/
 #map {
   height: 500px;
   width: 500px;
 }
 
+/*--lead image gallery for index and user page */
+.trailleadpic {
+  width: 100%;
+  background-color: #B1E6D9;
+  margin: 1% 1% 1% 1%;
+  padding: 0 0 0 0;
+}
+
+.picpin {
+  padding: 0 0 0 0;
+  margin-top: 0 0 0 0;
+}
+
+.uploaderbox {
+background-color: #22ADA5;
+width: 75%;
+margin-top: 8%;
+}
 /*--bottom navigation -- */
+
+footer{
+  height: 10%;
+  width: 100%;
+}
+
 nav {
   background-color: #057B71!important;
-
 }
 
 .navbar .nav {
@@ -95,7 +138,7 @@ ul li:nth-child(3) {
 
 /*--phone media query-- */
 @media only screen
-and (min-device-width : 375px)
+and (min-device-width : 300px)
 and (max-device-width : 667px) {
   .top .logo {
     width: 35%;
@@ -103,21 +146,33 @@ and (max-device-width : 667px) {
     margin-top: -12%;
     margin-left: 55%;
   }
-  .push{
-   color: #F8F8F8;
-   font-size: 2em;
+  body {
+    margin-bottom: 35%;
+  }
+
+  .headlinebox {
+    margin-top: -25%;
+  }
+
+  .headline {
+    margin-left: 5%;
+    color: #057B71;
+  }
+  .tagline {
+    margin-top: -10%;
+    margin-left: 10%;
+    color: #0CA79C;
+  }
+
+  .logo {
+    size: 50px;
   }
 }
 
 
-/*phone media query -- */
-  @media only screen
-and (min-device-width : 375px)
-and (max-device-width : 667px) {
-  .footer {
-    visibility: visible !important;
-  }
-}
+
+
+
 
 /*--Tablet media query-- */
 @media only screen
@@ -126,7 +181,7 @@ and (max-device-width : 1024px)  {
 /* STYLES GO HERE */
 }
 
-/*Laptop Media Quer -- */
+/*Laptop Media Queru -- */
 @media screen
   and (min-device-width: 1200px)
   and (max-device-width: 1600px)
