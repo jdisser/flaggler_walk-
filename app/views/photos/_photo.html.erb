@@ -1,6 +1,6 @@
 
 
-<%= image_tag(photo.picture_url(:thumb)) %>
+<%= image_tag(photo.picture_url(:thumb), id: photo.id) %>
 
   <p>Latitude: <%= photo.latitude  %></p>
   <p>Longitude: <%= photo.longitude  %></p>

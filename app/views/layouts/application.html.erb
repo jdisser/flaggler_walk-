@@ -4,6 +4,7 @@
   <title>PicPin {FAT Villiage}</title>
 
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/css/jasny-bootstrap.min.css">
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
   <link href='https://fonts.googleapis.com/css?family=Rancho' rel='stylesheet' type='text/css'>
@@ -15,12 +16,21 @@
 </head>
 
 <body>
+
   <!-- Top bar with logo and City Scape-->
   <div class="container top">
       <%= image_tag 'cityscape.png', class:'cityscape' %><br>
       <%= image_tag 'picpoint_FAT.png', class:'logo' %>
   </div>
     <!--End top bar -->
+
+<% if current_user.present?  %>
+  <%= " I am logged in as #{@current_user.username}" %>
+  <%= link_to 'LogOut', log_out_path, method: :delete %>
+<% else %>
+  <%= link_to 'LogIn', login_path %>
+<% end %>
+
 
   <!-- page content -->
   <%= yield %>
@@ -38,5 +48,10 @@
     </div>
   </nav>
 
-  </body>
-  </html>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/jasny-bootstrap/3.1.3/js/jasny-bootstrap.min.js"></script>
+</div>
+</body>
+</html>
