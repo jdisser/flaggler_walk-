@@ -1,16 +1,29 @@
-<h1>Add Pictures to your trail!</h1>
+<!-- Page headline -->
+<div class="container headlinebox ">
+  <div class="row headline">
+    <h1>Create a trail </h1>
+  </div>
+  <div class="row tagline">
+    <h4>Add picpins</h4>
+  </div>
+</div>
+
 <!-- upload photos to the new instance of Itinerary -->
 
+<!--create itineary box -->
 
-<% count = @itinerary.photos.count %>
+<div class="container uploaderbox text-center">
 
-<% if count < 10 %>
-    <%= render '/photos/form' %>
-  <% else %>
-    <%= "Yo, to many pics, slow down!" %>
-  <% end %>
+  <% count = @itinerary.photos.count %>
 
-<p><%= count %> of 10</p>
+  <% if count < 10 %>
+      <%= render '/photos/form' %>
+    <% else %>
+      <%= "Yo, to many pics, slow down!" %>
+    <% end %>
 
-<%= link_to image_tag("enter.gif"), itinerary_path %>
-<%= link_to 'Back', itineraries_path %>
+  <p><%= count %> of 10</p>
+
+  <%= link_to image_tag("plusicon.png"), itinerary_path %>
+  <%= link_to 'Back', itineraries_path %>
+</div>

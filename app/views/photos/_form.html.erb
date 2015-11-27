@@ -2,18 +2,22 @@
 
 <%= form_for([@itinerary, @itinerary.photos.new]) do |f| %>
 
-<div class="fileinput fileinput-new" data-provides="fileinput">
-  <%= f.file_field :picture, id: "fileInput", class:"fileinput-new" %>
-  <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 100px; height: 100px;">
-  </div>
+<div class="container uploaderbox">
+
+  <div class=" container text-center text-center ">
+    <div class="fileinput fileinput-new" data-provides="fileinput">
+      <%= f.file_field :picture, id: "fileInput", class:"fileinput-new" %>
+      <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 100px; height: 100px;">
+      </div>
+    </div>
+
+    <%= f.hidden_field :latitude, :value => "", id: "latitude" %>
+    <%= f.hidden_field :longitude, :value => "", id: "longitude" %>
+
+    <div class="actions">
+      <%= image_submit_tag("upload-cloud.png", id:"addphoto") %>
 </div>
 
-<%= f.hidden_field :latitude, :value => "", id: "latitude" %>
-<%= f.hidden_field :longitude, :value => "", id: "longitude" %>
-
-<div class="actions">
-  <%= f.submit "Add Picture", :id => "plusIcon" %>
-</div>
 <%# puts @itinerary.photos %>
 
 <% end %>
