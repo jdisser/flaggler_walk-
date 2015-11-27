@@ -1,11 +1,16 @@
 Rails.application.routes.draw do
   root to: "itineraries#index"
-  resources :sessions
+
+  get "/login" => "sessions#new"
+  post "/login" => "sessions#create"
+  delete "/log_out" => "sessions#destroy", as: :log_out
+  # resources :sessions
+
   resources :users
 
   get '/userphotos' => 'photos#user_index'
   get '/useritineraries' => 'itineraries#user_index'
-  get 'login' => 'sessions#new'
+  # get 'login' => 'sessions#new'
   get 'signup' => 'users#new'
 
   resources :itineraries do
