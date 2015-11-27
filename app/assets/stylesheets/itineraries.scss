@@ -1,49 +1,31 @@
 body {
   font-family: 'Rancho', 'cursive';
-}// set Google map size, must have to show map
+  font-size: 3em;
+}
+
+.tag1 {
+  margin-top: -40%;
+}
+
+// set Google map size, must have to show map
 #map {
   height: 500px;
   width: 500px;
 }
 
-
-h1 {
+// tagline
+.tagline1 {
+  font-size: 25em;
   font-family: 'Rancho', cursive;
-  color: #3D7489;
+  color: #3D7489 !important;
 }
 
 
-h3 {
-  font-family: 'Rancho', cursive;
-  color: #DB8E5C;
-}
 
-.tagline {
-  padding-top: -3em;
-  padding-left: 4em;
-  margin-top: -2.5em;
-}
+
+
 .logo {
   width: 150px;
   height: 100%;
   margin-top: -4em;
 }
-
-.fa{
-  size: 7em;
-}
-.picpin {
-  width: 150px;
-  height: 100%;
-}
-
-
-// // Tablet media query
-// @media (min-width: @screen-sm-min) {
-//
-// }
-//
-// //Medium devices
-// @media (min-width: @screen-md-min) {
-//
-// }

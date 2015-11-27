@@ -12,29 +12,32 @@
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
+
 <body>
   <!--Top bar with logo and City Scape-->
   <div class="container top">
       <%= image_tag 'cityscape.png', class:'cityscape' %><br>
       <%= image_tag 'picpoint_FAT.png', class:'logo' %>
     </div>
-  </header>
-  <%= yield %>
-    <%= "I am #{@current_user.inspect}" %>
-    <footer class="footer">
-      <div class="container">
-        <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container-fluid">
-          <div>
-            <ul class="nav navbar-nav">
-              <li><a href="#">Page 1</a></li>
-              <li><a href="#">Page 2</a></li>
-              <li><a href="#">Page 3</a></li>
-            </ul>
-          </div>
-        </div>
-      </nav>
+    <!--End top bar -->
 
-      </div></footer>
+  <!-- page content -->
+  <%= yield %>
+  <%= "I am #{@current_user.inspect}" %>
+  <!--End page content -->
+
+  <!--footer navigation begins-->
+    <div class="container">
+      <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div>
+          <ul class="nav navbar-nav">
+            <li><a href="#"><i class="push fa fa-angle-double-left"></i></a></li>
+            <li><a href="#"><i class="push fa fa-home"></i></a></li>
+            <li><a href="#"><i class="push fa fa-user"></i></a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
   </body>
   </html>
