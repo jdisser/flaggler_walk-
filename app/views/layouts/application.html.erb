@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Flaglerwalk</title>
+  <title>PicPin {FAT Villiage}</title>
 
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
   <link rel="stylesheet" media="all" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js">
@@ -13,23 +13,28 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-
-<%= yield %>
-  <%= "I am #{@current_user.inspect}" %>
-  <footer class="footer">
-    <div class="container">
-      <nav class="navbar navbar-inverse navbar-fixed-bottom">
-      <div class="container-fluid">
-        <div>
-          <ul class="nav navbar-nav">
-            <li><a href="#">Page 1</a></li>
-            <li><a href="#">Page 2</a></li>
-            <li><a href="#">Page 3</a></li>
-          </ul>
+  <!--Top bar with logo and City Scape-->
+  <div class="container top">
+      <%= image_tag 'cityscape.png', class:'cityscape' %><br>
+      <%= image_tag 'picpoint_FAT.png', class:'logo' %>
+    </div>
+  </header>
+  <%= yield %>
+    <%= "I am #{@current_user.inspect}" %>
+    <footer class="footer">
+      <div class="container">
+        <nav class="navbar navbar-inverse navbar-fixed-bottom">
+        <div class="container-fluid">
+          <div>
+            <ul class="nav navbar-nav">
+              <li><a href="#">Page 1</a></li>
+              <li><a href="#">Page 2</a></li>
+              <li><a href="#">Page 3</a></li>
+            </ul>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    </div></footer>
-</body>
-</html>
+      </div></footer>
+  </body>
+  </html>

@@ -1,21 +1,7 @@
 <p id="notice"><%= notice %></p>
 
 <div class="container-fluid">
-<!-- start navigation  -->
-  <div class="row">
-    <div class="col-sm-12 text-right">
-      <button type="button" class="btn btn-primary btn-sm outline">
-        <a href="#">Create a Trail</a></button>
-    </div>
-  </div>
-<!--end naviagation -->
-<!--start header -->
-  <div class="row">
-    <div class="col-sm-6">
-      <%= image_tag 'pictraillogo.png', class:'logo' %>
-    </div>
-    <div class="col-sm-6"></div>
-  </div>
+  <!-- Page head line -->
   <div class="row tagline1">
     <div class="col-sm-12 text-center">
       <h1 class='tagline'>Follow a trail</h1>
@@ -28,6 +14,11 @@
   </div>
 </div>
 
+<!-- Map of trails near the user -->
+
+
+
+
 <!-- Start gallery of images that represent trails -->
 <div class="container-fluid">
   <% @itineraries.each do |itinerary| %>
@@ -35,11 +26,6 @@
   <% end %>
 </div>
 <!-- End photo gallery of images that represent trails -->
-
-
-<!--end navigation -->
-
-
 
     <% @itineraries.each do |itinerary| %>
         <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
