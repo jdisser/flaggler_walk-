@@ -11,9 +11,10 @@
 <%= f.hidden_field :latitude, :value => "", id: "latitude" %>
 <%= f.hidden_field :longitude, :value => "", id: "longitude" %>
 
-<div class="actions">
-  <%= f.submit "Add Picture", :id => "plusIcon" %>
-</div>
-<%# puts @itinerary.photos %>
 
+
+<div>
+    <%=  image_submit_tag("add.png", id:"addphoto") %>
+
+</div>
 <% end %>
