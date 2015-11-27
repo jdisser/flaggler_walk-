@@ -16,25 +16,36 @@
 </head>
 
 <body>
-
+<!--User login status-->
+<!-- <% if current_user.present?  %>
+  <%= " I am logged in as #{@current_user.username}" %>
+  <%= link_to 'LogOut', log_out_path, method: :delete %>
+<% else %>
+  <%= link_to 'LogIn', login_path %>
+<% end %> -->
   <!-- Top bar with logo and City Scape-->
   <div class="container top">
-    <% if current_user.present?  %>
-      <%= " I am logged in as #{@current_user.username}" %>
-      <%= link_to 'LogOut', log_out_path, method: :delete %>
+    <div class="row loginstatus">
+      <% if current_user.present?  %>
+      <%= "Logged in as #{@current_user.username}" %>
+      <%= link_to 'Log Out', log_out_path, method: :delete %>
     <% else %>
       <%= link_to 'LogIn', login_path %>
     <% end %>
-    <%= image_tag 'cityscape.png', class:'cityscape' %><br>
-    <%= image_tag 'picpoint_FAT.png', class:'logo' %>
+  </div>
+    <div class="row headerimages">
+      <%= image_tag 'cityscape.png', class:'cityscape' %><br>
+      <%= image_tag 'piktrailogo.png', class:'logo' %>
   </div>
     <!--End top bar -->
+
 
   <!-- page content -->
   <%= yield %>
   <!--End page content -->
 
   <!--footer navigation begins-->
+
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div>
       <ul class="nav navbar-nav">
@@ -44,6 +55,7 @@
       </ul>
     </div>
   </nav>
+
 
 
 
