@@ -19,18 +19,16 @@
 
   <!-- Top bar with logo and City Scape-->
   <div class="container top">
-      <%= image_tag 'cityscape.png', class:'cityscape' %><br>
-      <%= image_tag 'picpoint_FAT.png', class:'logo' %>
+    <% if current_user.present?  %>
+      <%= " I am logged in as #{@current_user.username}" %>
+      <%= link_to 'LogOut', log_out_path, method: :delete %>
+    <% else %>
+      <%= link_to 'LogIn', login_path %>
+    <% end %>
+    <%= image_tag 'cityscape.png', class:'cityscape' %><br>
+    <%= image_tag 'picpoint_FAT.png', class:'logo' %>
   </div>
     <!--End top bar -->
-
-<% if current_user.present?  %>
-  <%= " I am logged in as #{@current_user.username}" %>
-  <%= link_to 'LogOut', log_out_path, method: :delete %>
-<% else %>
-  <%= link_to 'LogIn', login_path %>
-<% end %>
-
 
   <!-- page content -->
   <%= yield %>
@@ -40,9 +38,9 @@
   <nav class="navbar navbar-inverse navbar-fixed-bottom">
     <div>
       <ul class="nav navbar-nav">
-        <li><a href="#"><i class="push fa fa-angle-double-left"></i></a></li>
-        <li><a href="#"><i class="push fa fa-home"></i></a></li>
-        <li><a href="#"><i class="push fa fa-user"></i></a></li>
+        <li><a href="#" onclick="history.back();"><i class="push fa fa-angle-double-left"></i></a></li>
+        <li><a href="itineraries#index"><i class="push fa fa-home"></i></a></li>
+        <li><a href="/useritineraries"><i class="push fa fa-user"></i></a></li>
       </ul>
     </div>
   </nav>
