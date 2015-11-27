@@ -1,31 +1,19 @@
 body {
   font-family: 'Rancho', 'cursive';
-  font-size: 3em;
 }
-
-.tag1 {
-  margin-top: -40%;
+.headline {
+  background-color: red;
 }
-
 // set Google map size, must have to show map
 #map {
   height: 500px;
   width: 500px;
 }
 
-// tagline
-.tagline1 {
-  font-size: 25em;
-  font-family: 'Rancho', cursive;
-  color: #3D7489 !important;
+p {
+  color: red;
 }
-
-
-
-
-
-.logo {
-  width: 150px;
-  height: 100%;
-  margin-top: -4em;
-}
+// .headline {
+//   margin-top: 0px;
+//   text-align: center;
+// }

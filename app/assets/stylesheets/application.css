@@ -1,4 +1,5 @@
 body {
+  background-color: #B0E5D8;
   font-family: 'Rancho', 'cursive';
 }
 /*--header -- */
@@ -19,10 +20,55 @@ body {
   height: 100%;
   margin: 1%;
 }
+
+/*--headline/tagline--*/
+.headline {
+  margin-top: -13%;
+  margin-left: 35%;
+}
+// set Google map size, must have to show map
+#map {
+  height: 500px;
+  width: 500px;
+}
+
 /*--bottom navigation -- */
- .navbar .nav {
-  background-color: #00CCCC !important;
+nav {
+  background-color: #057B71!important;
+
+}
+
+.navbar .nav {
+  background-color: #057B71 !important;
   width: 100%;
+}
+
+.navbar .nav li {
+  display: inline-block;
+  /*width: 32%;*/
+}
+
+ul li:nth-child(1) {
+  width: 30%;
+  padding-left: 5%;
+}
+
+ul li:nth-child(2) {
+  width: 32%;
+  text-align: center;
+}
+
+ul li:nth-child(3) {
+  width: 32%;
+  text-align: right;
+}
+
+/*ul li a i {
+  float: right;
+}*/
+.push{
+ color: #F8F8F8;
+ font-size: 4em;
 }
 
 /*li {
@@ -40,19 +86,33 @@ and (max-device-width : 667px) {
     margin-top: -12%;
     margin-left: 55%;
   }
+  .push{
+   color: #F8F8F8;
+   font-size: 2em;
+  }
+
 }
 
 
-
-  /*@media only screen
+/*phone media query -- */
+  @media only screen
 and (min-device-width : 375px)
 and (max-device-width : 667px) {
   .footer {
     visibility: visible !important;
   }
-}*/
+}
 
 /*--Tablet media query-- */
-@media only screen and (max-width: 360px) {
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)  {
+/* STYLES GO HERE */
+}
 
+/*Laptop Media Quer -- */
+@media screen
+  and (min-device-width: 1200px)
+  and (max-device-width: 1600px)
+  and (-webkit-min-device-pixel-ratio: 1) {
 }
