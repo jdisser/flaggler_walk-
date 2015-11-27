@@ -18,7 +18,7 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%# f.select(:travel, ['WALKING', 'BICYCLE', 'DRIVE']) %>
+    
     <%= f.check_box(:travel) %>
     <%= label_tag(:travel, image_tag("walker.png", class:"travel-mode")) %>
     <%= f.check_box(:travel) %>
