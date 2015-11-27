@@ -1,11 +1,13 @@
 
 // set Google map size, must have to show map
-#map {
-  height: 500px;
-  width: 500px;
+body {
+  font-family: 'Rancho', 'cursive';
+}
+.headline {
+  background-color: red;
 }
 
-.uploaderbox {
-background-color: #22ADA5;
-width: 75%;
+.travel-mode {
+  width: 50px;
+  height: 50px;
 }
