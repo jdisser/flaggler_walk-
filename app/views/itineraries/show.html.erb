@@ -9,6 +9,8 @@
 
 
 <%= content_tag(:p, @itinerary.id, id: "trail" ) %>
-<% content_tag(:p, @itinerary.travel, id: "travel") %>
+
+<%= content_tag(:p, @itinerary.travel, id: "travel") %>
+
 <% link_to 'Back', itineraries_path %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize"></script>
