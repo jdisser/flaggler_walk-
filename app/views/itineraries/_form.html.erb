@@ -1,4 +1,5 @@
-<%= form_for(@itinerary) do |f| %>
+<div class="container uploaderbox text-center">
+  <%= form_for(@itinerary) do |f| %>
   <% if @itinerary.errors.any? %>
     <div id="error_explanation">
       <h2><%= pluralize(@itinerary.errors.count, "error") %>
@@ -17,11 +18,17 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.select(:travel, ['WALKING', 'BICYCLE', 'DRIVE']) %>
+
+    <%= f.check_box(:travel) %>
+    <%= f.label(:travel, image_tag("walker.png", class:"travel-mode")) %>
+    <%= f.check_box(:travel) %>
+    <%= f.label(:travel, image_tag("bicycle.png", class:"travel-mode")) %>
+    <%= f.check_box(:travel) %>
+    <%= f.label(:travel, image_tag("car.png", class:"travel-mode")) %>
   </div>
 
   <div class="actions">
-
     <%= f.submit "Done", id: "view-map" %>
   </div>
 <% end %>
+</div>

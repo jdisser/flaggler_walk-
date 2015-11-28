@@ -2,13 +2,13 @@
 </div>
 <p id="trail-length"></p>
 
-<%# puts @itinerary.photos.inspect %>
+
 <%= render @itinerary.photos %>
 
 
 
 <% content_tag(:p, @itinerary.id, id: "trail" ) %>
 <% content_tag(:p, @itinerary.travel, id: "travel") %>
-<%= link_to 'Back', itineraries_path %>
+<% link_to 'Back', itineraries_path %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize"></script>
 <!-- <p id="trail">40</p> -->

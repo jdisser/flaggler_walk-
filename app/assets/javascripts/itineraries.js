@@ -137,3 +137,15 @@ function initialize() {
   console.log(locations)
   setMarkers(locations, picData);
 }
+
+// capture GPS coords for each picture added to itinerary
+$(document).on("page:change", function() {
+  $('#fileInput').on('click', function() {
+    navigator.geolocation.getCurrentPosition(function(position){
+      lat = position.coords.latitude;
+      lon = position.coords.longitude;
+      document.getElementById('latitude').value = String(lat);
+      document.getElementById('longitude').value = String(lon);
+    });
+  });
+});
