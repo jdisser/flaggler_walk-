@@ -19,8 +19,8 @@
   <%= render @itinerary.photos %>
 
 
-<% content_tag(:p, @itinerary.id, id: "trail" ) %>
-<% content_tag(:p, @itinerary.travel, id: "travel") %>
+<%= content_tag(:p, @itinerary.id, id: "trail" ) %>
+<%= content_tag(:p, @itinerary.travel, id: "travel") %>
 <% link_to 'Back', itineraries_path %>
 
 </div>
