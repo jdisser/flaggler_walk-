@@ -23,9 +23,9 @@ body {
 /*--header -- */
 .top {
   width: 100%;
-  height: 20%;
-  margin: 0;
-  padding: 0;
+  height: 30%;
+  margin-top: 1em;
+  padding-bottom: 2em;
 }
 
 .loginstatus {
@@ -35,6 +35,9 @@ body {
   font-size: 1em;
 }
 
+.header {
+  padding: 1em 0 1em 0;
+}
 .logo {
   width: 150px;
   height:auto;
@@ -96,11 +99,13 @@ footer{
 
 nav {
   background-color: #057B71!important;
+  
 }
 
 .navbar .nav {
   background-color: #057B71 !important;
   width: 100%;
+  height:100%;
 }
 
 .navbar .nav li {
@@ -134,14 +139,22 @@ ul li:nth-child(3) {
 @media only screen
 and (min-device-width : 300px)
 and (max-device-width : 667px) {
+  /*Set margin-bottom to account for floating bottom navigation*/
+  body {
+    margin-bottom: 35%;
+  }
+
+  .loginstatus {
+    height: 50%;
+    text-align: right;
+    margin-right: auto;
+    font-size: 2em;
+  }
   .logo {
     width: 35%;
     height: 100%;
-    margin-top: -12%;
+    margin-top: -25%;
     margin-left: 55%;
-  }
-  body {
-    margin-bottom: 35%;
   }
 
   .headlinebox {
@@ -157,12 +170,17 @@ and (max-device-width : 667px) {
     margin-left: 10%;
     color: #0CA79C;
   }
-
-
+  #map {
+    width: 275px;
+    height: 275px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
+  footer{
+    height: 10%;
+    width: 100%;
+  }
 }
-
-
-
 
 
 

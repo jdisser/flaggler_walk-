@@ -27,7 +27,18 @@ body {
   margin-left: 10%;
 }
 
+// social media buttons
+.social {
+  margin-top: -5%;
+  text-align: left;
+  font-size: 2em;
+}
 
+// map positionsing
+.map {
+  margin-top: 0;
+  padding-top: 2em;
+}
 
 @media only screen
 and (min-device-width : 300px)
@@ -38,5 +49,16 @@ and (max-device-width : 667px) {
     height:auto;
     margin-top: -40%;
     margin-left: 10%;
+  }
+
+  .social {
+    margin-top: -5%;
+    font-size: 1.5em;
+  }
+
+  // map positionsing
+  .map {
+    margin-top: 0;
+    padding-top: 0;
   }
 }
