@@ -16,7 +16,7 @@ var map;
 function initialize() {
   var mapOptions = {
     zoom: 18,
-    center: {lat: 26.1284003, lng: -80.1451536},
+    center: {lat: 26.174253, lng: -80.2801087},
     mapTypeId: google.maps.MapTypeId.ROADMAP
   };
 
@@ -82,7 +82,7 @@ function initialize() {
 
 // capture GPS coords for each picture added to itinerary
 $(document).on("page:change", function() {
-  $('#photo_picture').on('click', function() {
+  $('#fileInput').on('click', function() {
     navigator.geolocation.getCurrentPosition(function(position){
       lat = position.coords.latitude;
       lon = position.coords.longitude;
