@@ -117,6 +117,7 @@ function setMarkers(locations, picData) {
 
 function initialize() {
   var itin = $("#trail").text(); //was in set markers JRD112415 added jq selector for trail
+
   var picData = getJson(itin);    //comment out for testing
   // // var picData = [{id: 4, title: null, latitude: 26.1284596, longitude: -80.1452495, picture_url: "https://picpointcloud.s3.amazonaws.com/uploads/photo/picture/4/1448386220643-498292486.jpg"},
   //               {id: 5, title: null, latitude: 26.12857, longitude: -80.1455872, picture_url: "https://picpointcloud.s3.amazonaws.com/uploads/photo/picture/5/1448386322123-2140511222.jpg"},
