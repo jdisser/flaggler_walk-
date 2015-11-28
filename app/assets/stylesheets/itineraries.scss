@@ -30,8 +30,10 @@ body {
 // social media buttons
 .social {
   margin-top: -5%;
+  margin-left: 2em;
   text-align: left;
   font-size: 2em;
+  color: #057B71;
 }
 
 // map positionsing
@@ -52,9 +54,11 @@ and (max-device-width : 667px) {
   }
 
   .social {
-    margin-top: -5%;
+    margin-top: -10%;
+    margin-left: .5em;
     font-size: 1.5em;
-  }
+    padding-bottom: .5em;
+    }
 
   // map positionsing
   .map {

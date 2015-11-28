@@ -32,7 +32,8 @@ body {
   height: 50%;
   text-align: right;
   margin-right: 3em;
-  font-size: 1em;
+  font-size: 2.5em;
+  color:#057B71;
 }
 
 .header {
@@ -51,19 +52,15 @@ body {
 }
 
 /*--headline/tagline--*/
-.headlinebox {
-  width: 100%;
-  margin-top: -12%;
-  background-color: #B1E6D9;
-}
 
 .headline {
+  margin-top: -8%;
   margin-left: 35%;
   color: #057B71;
 }
 .tagline {
   margin-top: -2%;
-  margin-left: 42%;
+  margin-left: 40%;
   color: #0CA79C;
 }
 /*// set Google map size, must have to show map*/
@@ -85,13 +82,15 @@ body {
   margin-top: 0 0 0 0;
 }
 
+/*Box to upload pic from device ox*/
 .uploaderbox {
 background-color: #22ADA5;
 width: 75%;
 margin-top: 8%;
 }
-/*--bottom navigation -- */
 
+
+/*--bottom navigation -- */
 footer{
   height: 10%;
   width: 100%;
@@ -99,7 +98,7 @@ footer{
 
 nav {
   background-color: #057B71!important;
-  
+
 }
 
 .navbar .nav {
@@ -157,12 +156,10 @@ and (max-device-width : 667px) {
     margin-left: 55%;
   }
 
-  .headlinebox {
-    margin-top: -25%;
-  }
 
   .headline {
-    margin-left: 5%;
+    margin-top: -25%;
+    margin-left: 3%;
     color: #057B71;
   }
   .tagline {
