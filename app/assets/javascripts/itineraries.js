@@ -87,7 +87,7 @@ function setMarkers(locations, picData) {
               icon: markerImage,
               title: 'Click to see photo'
             });
-            text = "<div id='pic-point-photo'> <img src=" + data.picture_url + " height= '150' width= '150'></div>"
+            text = "<div id='pic-point-photo'> <img src=" + data.picture_url + " height= '150' width= '150'></div>";
             attachContent(marker, text);
             markerArray[i] = marker;
 
@@ -135,7 +135,6 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);     //<------  MAP IS GLOBAL VARIABLE !!!!!
   var locations = getLocations(picData);
-  console.log(locations)
   setMarkers(locations, picData);
 }
 
