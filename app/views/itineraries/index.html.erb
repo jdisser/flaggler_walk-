@@ -1,9 +1,7 @@
 <style media="screen"></style>
-<link rel="stylesheet" type="text/css" href="itineraries.scss">
 
 
 <p id="notice"><%= notice %></p>
-
 
 <!-- Page headline -->
 <div class="container headlinebox">
@@ -24,6 +22,7 @@
       <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!"), itinerary, class:'picpin' %>
       <% end %>
     </div>
+
 <!-- End photo gallery of images that represent trails -->
 
 
@@ -33,12 +32,3 @@
         <%# link_to 'Edit', edit_itinerary_path(itinerary) %>
         <%# link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
       <%# end %>
-
-
-
-
-
-
-
-<!-- This link will not be shown on public site  -->
-<!-- <%= link_to 'New Itinerary', new_itinerary_path %> -->
