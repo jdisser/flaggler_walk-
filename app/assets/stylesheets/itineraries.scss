@@ -12,5 +12,26 @@ body {
 .createtrail {
   width: 80%;
   height: auto;
+}
 
+// user profile information
+.userlogo {
+  width: 150px;
+  height:auto;
+  margin-top: -18%;
+  margin-left: 10%;
+}
+
+
+
+@media only screen
+and (min-device-width : 300px)
+and (max-device-width : 667px) {
+
+  .userlogo {
+    width: 35%;
+    height:auto;
+    margin-top: -40%;
+    margin-left: 10%;
+  }
 }

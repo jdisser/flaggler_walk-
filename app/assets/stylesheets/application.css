@@ -36,8 +36,8 @@ body {
 }
 
 .logo {
-  width: 10%;
-  height: 100%;
+  width: 150px;
+  height:auto;
   margin-top: -8%;
   margin-left: 75%;
 }
@@ -123,24 +123,18 @@ ul li:nth-child(3) {
   text-align: right;
 }
 
-/*ul li a i {
-  float: right;
-}*/
 .push{
  color: #F8F8F8;
  font-size: 4em;
 }
 
-/*li {
-  display: inline-flex !important ;
-  size: 55px;
-}*/
+
 
 /*--phone media query-- */
 @media only screen
 and (min-device-width : 300px)
 and (max-device-width : 667px) {
-  .top .logo {
+  .logo {
     width: 35%;
     height: 100%;
     margin-top: -12%;
@@ -164,9 +158,7 @@ and (max-device-width : 667px) {
     color: #0CA79C;
   }
 
-  .logo {
-    size: 50px;
-  }
+
 }
 
 
