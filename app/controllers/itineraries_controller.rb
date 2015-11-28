@@ -7,7 +7,7 @@ class ItinerariesController < ApplicationController
   end
 
   def user_index
-    # require_logged_in
+    require_logged_in
     @itineraries = Itinerary.all
   end
 
