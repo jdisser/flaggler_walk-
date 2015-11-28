@@ -12,7 +12,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-
+    @itinerary = Itinerary.find(params[:id])
     # set show action to respond to AJAX request
     respond_to do |format|
       format.html

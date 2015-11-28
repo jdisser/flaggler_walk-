@@ -1,13 +1,26 @@
 
+
 <share-button class="sharing"></share-button>
 
-<div id="map">
+<!--Social Networking Share buttons -->
+  <div class="row social">
+    Share this trail!
+      <i class="fa fa-facebook-official"></i>
+      <i class="fa fa-twitter-square"></i>
+  </div>
+
+
+<!-- Map of itinerary -->
+<div class="row map">
+  <div id="map"></div>
 </div>
+
 <p id="trail-length"></p>
 
 
-<%= render @itinerary.photos %>
-
+<!--image thumbnails to open as model -->
+<div class="container-fluid">
+  <%= render @itinerary.photos %>
 
 
 <%= content_tag(:p, @itinerary.id, id: "trail" ) %>
@@ -15,6 +28,8 @@
 <%= content_tag(:p, @itinerary.travel, id: "travel") %>
 
 <% link_to 'Back', itineraries_path %>
+
+</div>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize"></script>
 <script>
           config = {
