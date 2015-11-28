@@ -7,10 +7,9 @@ Rails.application.routes.draw do
   # resources :sessions
 
   resources :users
-
+  get '/edittrail' => 'itineraries#edit_trail'
   get '/userphotos' => 'photos#user_index'
   get '/useritineraries' => 'itineraries#user_index'
-  # get 'login' => 'sessions#new'
   get 'signup' => 'users#new'
 
   resources :itineraries do

@@ -1,40 +1,34 @@
+<style media="screen"></style>
+
+
 <p id="notice"><%= notice %></p>
 
-<div class="container">
-  <div class="row">
-    <div class="col-4">
-      <p> Logo here </p></div>
-    <div class="col-sm-4"></div>
-
-
-    </div>
-
-    </div>
-
+<!-- Page headline -->
+<div class="container headlinebox">
+  <div class="row headline">
+    <h1>Follow a trail</h1>
   </div>
-  <div class="row">
-    <div class "col-sm-"
-    <div class="col-sm-4">
-      <h1>Follow a trail</h1>
-      <h3>Open your eyes</h3>
-    </div>
-
-  <div>
+  <div class="row tagline">
+    <h4>Look up!</h4>
+  </div>
 </div>
 
 
+<!-- Map of trails near the user -->
 
-    <% @itineraries.each do |itinerary| %>
-        <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
-        <%= link_to 'Show', itinerary %></td>
-        <%= link_to 'Edit', edit_itinerary_path(itinerary) %></td>
-        <%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+<!-- Start gallery of images that represent trails -->
+    <div class="container-fluid text-center trailleadpic">
+      <% @itineraries.each do |itinerary| %>
+      <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!"), itinerary, class:'picpin' %>
       <% end %>
+    </div>
+
+<!-- End photo gallery of images that represent trails -->
 
 
-
-
-<br>
-
-<!-- This link will not be shown on public site  -->
-<%= link_to 'New Itinerary', new_itinerary_path %>
+    <%#@itineraries.each do |itinerary| %>
+        <%# link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
+        <%# link_to 'Show', itinerary %>
+        <%# link_to 'Edit', edit_itinerary_path(itinerary) %>
+        <%# link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
+      <%# end %>

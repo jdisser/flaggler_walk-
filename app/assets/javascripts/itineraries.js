@@ -82,7 +82,7 @@ function initialize() {
 
 // capture GPS coords for each picture added to itinerary
 $(document).on("page:change", function() {
-  $('#photo_picture').on('click', function() {
+  $('#fileInput').on('click', function() {
     navigator.geolocation.getCurrentPosition(function(position){
       lat = position.coords.latitude;
       lon = position.coords.longitude;
