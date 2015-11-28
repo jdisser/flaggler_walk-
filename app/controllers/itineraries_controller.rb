@@ -77,7 +77,11 @@ class ItinerariesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_itinerary
-      @itinerary = current_user.itineraries.find(params[:id])
+      if current_user.present?
+        @itinerary = current_user.itineraries.find(params[:id])
+      else
+        @itinerary = Itinerary.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
