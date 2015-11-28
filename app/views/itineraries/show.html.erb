@@ -1,4 +1,6 @@
 
+<share-button class="sharing"></share-button>
+
 <div id="map">
 </div>
 <p id="trail-length"></p>
@@ -12,3 +14,13 @@
 <% content_tag(:p, @itinerary.travel, id: "travel") %>
 <% link_to 'Back', itineraries_path %>
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAIAW3z8RyJAAq5KFcziTTMSk9fh42xyRc&callback=initialize"></script>
+<script>
+          config = {
+            networks: {
+          email: {
+            enabled: false
+              }
+            }
+          };
+          var shareButton = new ShareButton('.sharing', config)
+</script>

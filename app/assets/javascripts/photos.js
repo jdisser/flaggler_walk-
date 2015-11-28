@@ -11,3 +11,6 @@ $(document).on('page:change', function() {
     $('.travel-mode3').effect("shake");
   });
 });
+
+
+  
