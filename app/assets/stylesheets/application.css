@@ -73,7 +73,7 @@ body {
 .trailleadpic {
   width: 100%;
   background-color: #B1E6D9;
-  margin: 1% 1% 1% 1%;
+  margin: -1% -1% -1% -1%;
   padding: 0 0 0 0;
 }
 
@@ -156,7 +156,6 @@ and (max-device-width : 667px) {
     margin-left: 55%;
   }
 
-
   .headline {
     margin-top: -25%;
     margin-left: 3%;
@@ -173,6 +172,8 @@ and (max-device-width : 667px) {
     padding: 0 0 0 0;
     margin: 0 0 0 0;
   }
+
+
   footer{
     height: 10%;
     width: 100%;
