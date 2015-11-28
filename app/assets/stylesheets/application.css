@@ -19,27 +19,36 @@ body {
   background-color: #B1E6D9;
   font-family: 'Rancho', 'cursive';
   margin-bottom: 8%;
+  color:#00BDAC;
 }
+
+
 /*--header -- */
 .top {
   width: 100%;
-  height: 20%;
-  margin: 0;
-  padding: 0;
+  height: 30%;
+  margin-top: 1em;
+  padding-bottom: 2em;
 }
 
 .loginstatus {
   height: 50%;
   text-align: right;
   margin-right: 3em;
-  font-size: 1em;
+  font-size: 2.5em;
+  color:#057B71;
 }
 
+.header {
+  padding: 1em 0 1em 0;
+}
 .logo {
-  width: 10%;
-  height: 100%;
+  width: 250px;
+  height:auto;
   margin-top: -8%;
   margin-left: 75%;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .cityscape {
@@ -48,19 +57,16 @@ body {
 }
 
 /*--headline/tagline--*/
-.headlinebox {
-  width: 100%;
-  margin-top: -12%;
-  background-color: #B1E6D9;
-}
 
 .headline {
+  margin-top: -7%;
   margin-left: 35%;
   color: #057B71;
+  padding-top: 10px;
 }
 .tagline {
   margin-top: -2%;
-  margin-left: 42%;
+  margin-left: 40%;
   color: #0CA79C;
 }
 /*// set Google map size, must have to show map*/
@@ -73,22 +79,30 @@ body {
 .trailleadpic {
   width: 100%;
   background-color: #B1E6D9;
-  margin: 1% 1% 1% 1%;
+  margin: -1% -1% -1% -1%;
   padding: 0 0 0 0;
 }
 
 .picpin {
   padding: 0 0 0 0;
   margin-top: 0 0 0 0;
+  border-radius: 10px;
 }
 
+/*Box to upload pic from device ox*/
 .uploaderbox {
 background-color: #22ADA5;
-width: 75%;
+width: 80%;
 margin-top: 8%;
+border-radius: 12px;
 }
-/*--bottom navigation -- */
 
+/*field to enter title of trail */
+.field {
+padding-top: 20px;
+}
+
+/*--bottom navigation -- */
 footer{
   height: 10%;
   width: 100%;
@@ -96,11 +110,13 @@ footer{
 
 nav {
   background-color: #057B71!important;
+
 }
 
 .navbar .nav {
   background-color: #057B71 !important;
   width: 100%;
+  height:100%;
 }
 
 .navbar .nav li {
@@ -123,39 +139,37 @@ ul li:nth-child(3) {
   text-align: right;
 }
 
-/*ul li a i {
-  float: right;
-}*/
 .push{
- color: #F8F8F8;
+ color: #FEC954;
  font-size: 4em;
 }
 
-/*li {
-  display: inline-flex !important ;
-  size: 55px;
-}*/
 
 /*--phone media query-- */
 @media only screen
 and (min-device-width : 300px)
 and (max-device-width : 667px) {
-  .top .logo {
-    width: 35%;
-    height: 100%;
-    margin-top: -12%;
-    margin-left: 55%;
-  }
+  /*Set margin-bottom to account for floating bottom navigation*/
   body {
     margin-bottom: 35%;
   }
 
-  .headlinebox {
+  .loginstatus {
+    height: 50%;
+    text-align: right;
+    margin-right: auto;
+    font-size: 2em;
+  }
+  .logo {
+    width: 35%;
+    height: 100%;
     margin-top: -25%;
+    margin-left: 55%;
   }
 
   .headline {
-    margin-left: 5%;
+    margin-top: -25%;
+    margin-left: 3%;
     color: #057B71;
   }
   .tagline {
@@ -163,14 +177,19 @@ and (max-device-width : 667px) {
     margin-left: 10%;
     color: #0CA79C;
   }
+  #map {
+    width: 275px;
+    height: 275px;
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+  }
 
-  .logo {
-    size: 50px;
+
+  footer{
+    height: 10%;
+    width: 100%;
   }
 }
-
-
-
 
 
 
