@@ -19,7 +19,10 @@ body {
   background-color: #B1E6D9;
   font-family: 'Rancho', 'cursive';
   margin-bottom: 8%;
+  color:#00BDAC;
 }
+
+
 /*--header -- */
 .top {
   width: 100%;
@@ -40,10 +43,12 @@ body {
   padding: 1em 0 1em 0;
 }
 .logo {
-  width: 150px;
+  width: 180px;
   height:auto;
   margin-top: -8%;
   margin-left: 75%;
+  background-color: white;
+  border-radius: 20px;
 }
 
 .cityscape {
@@ -54,9 +59,10 @@ body {
 /*--headline/tagline--*/
 
 .headline {
-  margin-top: -8%;
+  margin-top: -7%;
   margin-left: 35%;
   color: #057B71;
+  padding-top: 10px;
 }
 .tagline {
   margin-top: -2%;
@@ -80,15 +86,21 @@ body {
 .picpin {
   padding: 0 0 0 0;
   margin-top: 0 0 0 0;
+  border-radius: 10px;
 }
 
 /*Box to upload pic from device ox*/
 .uploaderbox {
 background-color: #22ADA5;
-width: 75%;
+width: 80%;
 margin-top: 8%;
+border-radius: 12px;
 }
 
+/*field to enter title of trail */
+.field {
+padding-top: 20px;
+}
 
 /*--bottom navigation -- */
 footer{
@@ -128,10 +140,9 @@ ul li:nth-child(3) {
 }
 
 .push{
- color: #F8F8F8;
+ color: #FEC954;
  font-size: 4em;
 }
-
 
 
 /*--phone media query-- */

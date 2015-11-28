@@ -10,23 +10,25 @@ body {
 }
 
 .greeting {
-  margin-top: -10%;
-  padding-bottom: 5%;
+  margin-top: 10%;
+  padding-bottom: 20px;
   font-size: 2em;
+  color: #057B71;
 }
 .createtrail {
+  width: 50%;
   margin-top: -5%;
   padding-bottom: 5%;
 }
 
 .btn {
-
   color: #057B71!important;
-  background-color:#AEE4D6;
+  background-color:#FEC954;
   border: solid #057B71;
   border-radius: 12px;
   font-size: 24px;
   transition-duration: 0.4s;
+  padding-top: 10px;
 }
 
 .btn:hover {
@@ -39,6 +41,7 @@ body {
   height:auto;
   margin-top: -18%;
   margin-left: 10%;
+  display: none;
 }
 
 // social media buttons
@@ -73,6 +76,16 @@ and (max-device-width : 667px) {
     font-size: 1.5em;
     padding-bottom: .5em;
     }
+  // Hi user! Blaze a trail
+  .greeting {
+    margin-top:-10%;
+  }
+  // instructions for steps to create a trail
+  .instructions{
+    margin-bottom: -8%;
+    font-size: 25px;
+    padding-bottom: 10px;
+  }
 
   // map positionsing
   .map {

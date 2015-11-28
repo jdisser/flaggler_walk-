@@ -1,12 +1,11 @@
 <!-- Page headline -->
-<div class="container headlinebox ">
-  <div class="row headline">
-    <h1>Create a trail </h1>
-  </div>
-  <div class="row tagline">
-    <h4>Add picpins</h4>
-  </div>
+<div class="row headline">
+  <h1>Create a trail </h1>
 </div>
+<div class="row instructions text-center">
+  Add PicPins
+</div>
+
 
 <!-- upload photos to the new instance of Itinerary -->
 
@@ -24,5 +23,5 @@
 
   <p><%= count %> of 10</p>
 
-  <%= link_to image_tag("createtrail.png", :class => "createtrail"), itinerary_path %>
+  <%= link_to image_tag("createtrail.png", :class => "btn-primary createtrail"), itinerary_path %>
 </div>
