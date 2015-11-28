@@ -12,7 +12,7 @@ class ItinerariesController < ApplicationController
   end
 
   def show
-
+    @itinerary = Itinerary.find(params[:id])
     # set show action to respond to AJAX request
     respond_to do |format|
       format.html
@@ -77,7 +77,11 @@ class ItinerariesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_itinerary
-      @itinerary = current_user.itineraries.find(params[:id])
+      if current_user.present?
+        @itinerary = current_user.itineraries.find(params[:id])
+      else
+        @itinerary = Itinerary.find(params[:id])
+      end
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

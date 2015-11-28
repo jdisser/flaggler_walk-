@@ -1,14 +1,32 @@
+<!-- User profile information  -->
+  <div class="container top">
+      <div class="row">
+        <%= image_tag 'userlogo.png', class:'userlogo' %>
+    </div>
+  </div>
+<!-- End User Profile information -->
+
+<!-- User greeting Message  -->
+<div class="container">
+  <div class="row text-center greeting">
+    <%= "Hi #{@current_user.username}!" %>
+    <%= link_to 'Ready to blaze a new trail?', new_itinerary_path, class: "btn btn-createtrail" %>
+  </div>
+  </div>
+
+
 <div class="container text-center">
-  <h1> User Index landing page</h1>
-</div>
+  <div class="container-fluid">
+      <% @itineraries.each do |itinerary| %>
+          <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
+          <%= link_to image_tag("garbagecan.png"), itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+  </div>
 
-<div class="row text-center">
-  <%= link_to 'Make a Trail!', new_itinerary_path %>
+  <!-- <% @itineraries.each do |itinerary| %>
+      <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
+      <% link_to 'Show', itinerary %></td>
+      <%= link_to 'Edit', edittrail_path(itinerary) %></td>
+      <%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %> -->
 </div>
-
-<% @itineraries.each do |itinerary| %>
-    <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
-    <% link_to 'Show', itinerary %></td>
-    <%= link_to 'Edit', edittrail_path(itinerary) %></td>
-    <%= link_to 'Destroy', itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  <% end %>
