@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+    @user = User.new
   end
 
   def create
@@ -16,6 +17,7 @@ class SessionsController < ApplicationController
         #starting point for villagers after login
       else
         # render action: 'new'
+        @user = User.new 
         render :new
       end
   end
