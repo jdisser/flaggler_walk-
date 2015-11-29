@@ -30,7 +30,8 @@ class ItinerariesController < ApplicationController
   end
 
   def edit_trail
-    require_logged_in
+    # require_logged_in
+  
   end
 
   def create
