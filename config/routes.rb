@@ -11,7 +11,7 @@ Rails.application.routes.draw do
   get '/userphotos' => 'photos#user_index'
   get '/useritineraries' => 'itineraries#user_index'
   get 'signup' => 'users#new'
-
+  
   resources :itineraries do
     resources :photos
   end
