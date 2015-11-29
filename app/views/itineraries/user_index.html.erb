@@ -22,7 +22,10 @@
       <% @itineraries.each do |itinerary| %>
           <% if itinerary.photos.first.present? %>
             <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
-            <%= link_to image_tag("garbagecan.png"), itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <%= link_to image_tag("garbagecan.png"), itinerary, method: :delete, data: { confirm: 'Are you sure?' } %>
+            <%= image_tag("edit.png") %></td>
+
+          </td>
           <% end %>
       <% end %>
   </div>
