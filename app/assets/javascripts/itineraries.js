@@ -67,6 +67,7 @@ function setMarkers(locations, picData) {
           var infoContent;
           var marker;
           var markerArray = [];
+          console.log(picpic);
           var markerImage = {                       //define the icon and anchor point
             // url: '/assets/picpinmarker.png',
             url: picpin,
