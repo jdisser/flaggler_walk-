@@ -1,9 +1,9 @@
 
 
 
-
-<%= image_tag(photo.picture_url(:thumb), id: photo.id, class: "thumbnails") %>
-
-<%= image_tag(photo.picture_url, class: "fullsize") %>
+<div class="both">
+  <%= image_tag(photo.picture_url(:thumb), id: photo.id, class: "thumbnails") %>
+  <%= image_tag(photo.picture_url, class: "fullsize") %>
+</div>
    <%# photo.latitude  %>
    <%# photo.longitude  %>
