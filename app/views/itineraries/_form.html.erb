@@ -18,12 +18,12 @@
   </div>
   <div class="field">
 
-    <%= f.check_box(:travel) %>
+    <%= f.radio_button(:travel, :class => "check-box") %>
     <%= f.label(:travel, image_tag("walker.png", class:"travel-mode")) %>
-    <%= f.check_box(:travel) %>
-    <%= f.label(:travel, image_tag("bicycle.png", class:"travel-mode")) %>
-    <%= f.check_box(:travel) %>
-    <%= f.label(:travel, image_tag("car.png", class:"travel-mode")) %>
+    <%= f.radio_button(:travel, class:"check-box2") %>
+    <%= f.label(:travel, image_tag("bicycle.png", class:"travel-mode2")) %>
+    <%= f.radio_button(:travel, class:"check-box3") %>
+    <%= f.label(:travel, image_tag("car.png", class:"travel-mode3")) %>
   </div>
 
   <div class="actions">

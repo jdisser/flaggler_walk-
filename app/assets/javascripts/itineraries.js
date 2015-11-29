@@ -68,7 +68,8 @@ function setMarkers(locations, picData) {
           var marker;
           var markerArray = [];
           var markerImage = {                       //define the icon and anchor point
-            url: '/assets/picpinmarker.png',
+            // url: '/assets/picpinmarker.png',
+            url: 'https://s3.amazonaws.com/photastic/uploads/photo/upload/picpin/picpinmarker.png',
             size: new google.maps.Size(25,25),
             origin: new google.maps.Point(0,0),
             anchor: new google.maps.Point(12,12)    //set to center of image
@@ -87,7 +88,7 @@ function setMarkers(locations, picData) {
               icon: markerImage,
               title: 'Click to see photo'
             });
-            text = "<div id='pic-point-photo'> <img src=" + data.picture_url + " height= '150' width= '150'></div>"
+            text = "<div id='pic-point-photo'> <img src=" + data.picture_url + " height= '150' width= '150'></div>";
             attachContent(marker, text);
             markerArray[i] = marker;
 
@@ -135,7 +136,6 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);     //<------  MAP IS GLOBAL VARIABLE !!!!!
   var locations = getLocations(picData);
-  console.log(locations)
   setMarkers(locations, picData);
 }
 
