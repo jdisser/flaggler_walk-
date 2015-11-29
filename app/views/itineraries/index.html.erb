@@ -17,7 +17,9 @@
 <!-- Start gallery of images that represent trails -->
     <div class="container-fluid text-center trailleadpic">
       <% @itineraries.each do |itinerary| %>
-      <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!", class: "leadpic"), itinerary, class:'picpin' %>
+        <% if itinerary.photos.first.present? %>
+          <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!", class: "leadpic"), itinerary, class:'picpin' %>
+        <% end %>
       <% end %>
     </div>
 
