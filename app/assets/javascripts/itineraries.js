@@ -107,7 +107,6 @@ function setMarkers(locations, picData) {
           trailLength /= 1609.00;                                     //convert to miles
           trailLength = trailLength.toFixed(2);                       //limit deceimals
           $('#trail-length').text("This trail is " + trailLength + " miles long");
-          console.log(trailLength);
         } else {//???? funny div message??? experiencing technical difficulty GFIP
           ;//trigger an alert to request the user refresh the browser
       }
