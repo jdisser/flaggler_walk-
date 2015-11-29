@@ -30,6 +30,15 @@ body {
   padding-bottom: 5%;
 }
 
+// number of photos added to trail out of 10
+.count {
+  color: #FEC954 !important;
+
+}
+
+.donebutton {
+  padding-top: 15px;
+}
 .btn {
   color: #057B71!important;
   background-color:#FEC954;
@@ -56,10 +65,13 @@ body {
 // social media buttons
 .social {
   margin-top: -5%;
-  margin-left: 2em;
   text-align: left;
-  font-size: 2em;
+  background-color: red;
   color: #057B71;
+}
+
+.sharing {
+  float: left;
 }
 
 // map positionsing
@@ -79,11 +91,9 @@ and (max-device-width : 667px) {
     margin-left: 10%;
   }
 
-  .social {
-    margin-top: -10%;
-    margin-left: .5em;
-    font-size: 1.5em;
-    padding-bottom: .5em;
+// share button styling
+  .sharing {
+
     }
   // Hi user! Blaze a trail
   .greeting {
@@ -112,5 +122,6 @@ and (max-device-width : 667px) {
 }
 
 .sharing {
-  margin-left: 100px;
+  margin-left: 0px;
+  margin-top: -10%;
 }

@@ -10,20 +10,23 @@
 <!-- upload photos to the new instance of Itinerary -->
 
 <!--create itineary box -->
+<div class="row">
 
-<div class="container uploaderbox text-center">
+  <div class="container uploaderbox text-center">
+    <% count = @itinerary.photos.count %>
+    <% if count < 10 %>
+        <%= render '/photos/form' %>
+      <% else %>
+        <%= "Yo, to many pics, slow down!" %>
+      <% end %>
 
-  <% count = @itinerary.photos.count %>
-
-  <% if count < 10 %>
-      <%= render '/photos/form' %>
-    <% else %>
-      <%= "Yo, to many pics, slow down!" %>
-    <% end %>
-
-  <h3><%= count %> of 10</h3>
-
-  <h3><%= link_to "DONE", itinerary_path %></h3>
+    <h4 class="count"><%= count %> of 10</h4>
+  </div>
+</div>
 
 
+<div class="row">
+  <div class=" donebutton text-center">
+    <%= link_to "DONE", itinerary_path, class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
+  </div>
 </div>
