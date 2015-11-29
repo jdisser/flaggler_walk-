@@ -18,7 +18,7 @@
   </div>
   <div class="field">
 
-    <%= f.radio_button(:travel, "WALKING") %>
+    <%= f.radio_button(:travel, "WALKING", checked: true) %>
     <%= f.label(:travel, image_tag("walker.png", class:"travel-mode")) %>
     <%= f.radio_button(:travel, "BICYCLING") %>
     <%= f.label(:travel, image_tag("bicycle.png", class:"travel-mode2")) %>
