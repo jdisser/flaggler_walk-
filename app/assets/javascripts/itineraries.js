@@ -68,7 +68,8 @@ function setMarkers(locations, picData) {
           var marker;
           var markerArray = [];
           var markerImage = {                       //define the icon and anchor point
-            url: '/assets/picpinmarker.png',
+            // url: '/assets/picpinmarker.png',
+            url: picpin,
             size: new google.maps.Size(25,25),
             origin: new google.maps.Point(0,0),
             anchor: new google.maps.Point(12,12)    //set to center of image
