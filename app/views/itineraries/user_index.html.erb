@@ -8,11 +8,13 @@
 
 <!-- User greeting Message  -->
 <div class="container">
-  <div class="row text-center greeting">
-    <%= "Hi #{@current_user.username}!" %>
+  <div class="row text-center">
+    <div class="greeting">
+      <%= "Hi, #{@current_user.username} !"%>
+    </div>
     <%= link_to 'Ready to blaze a new trail?', new_itinerary_path, class: "btn btn-createtrail" %>
   </div>
-  </div>
+</div>
 
 
 <div class="container text-center">

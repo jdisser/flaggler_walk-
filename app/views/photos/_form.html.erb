@@ -17,7 +17,7 @@
 
 
 <div>
-    <%=  image_submit_tag("add.png", id:"addphoto") %>
-
+    <%#  image_submit_tag("add.png", id:"addphoto") %>
+    <%= f.button "ADD", class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
 </div>
 <% end %>
