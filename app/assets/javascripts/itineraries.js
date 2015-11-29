@@ -33,7 +33,7 @@ var getLocations = function (picData){
 
 }
 
-function setMarkers(locations, picData) {
+function setMarkers(locations, picData, tMode) {
 
   var directionsService = new google.maps.DirectionsService();
 
@@ -43,12 +43,17 @@ function setMarkers(locations, picData) {
 //  directionRenderer.suppressMarkers = true;
   directionRenderer.setMap(map);
 
+  //sample googlecode for using variable to set travelmode
+  // var method = 'DRIVING';
+  // var request = {
+  //     travelMode: google.maps.TravelMode[method]
+  // };
 
   var directionsRequest = {
     origin: trailOrigin,
     destination: trailDestination,
     waypoints: trailPics || [],                                 //to handle 2 point route JRD112415
-    travelMode: google.maps.DirectionsTravelMode.WALKING, //<-----get this var from #Travel
+    travelMode: google.maps.DirectionsTravelMode[tMode], //<-----get this var from #travel
     unitSystem: google.maps.UnitSystem.IMPERIAL,
     optimizeWaypoints: true                               //reorder the waypoints if mixed JRD112415
   };
@@ -117,6 +122,7 @@ function setMarkers(locations, picData) {
 
 function initialize() {
   var itin = $("#trail").text(); //was in set markers JRD112415 added jq selector for trail
+  var tMode = $("#travel").text();
 
   var picData = getJson(itin);    //comment out for testing
   // // var picData = [{id: 4, title: null, latitude: 26.1284596, longitude: -80.1452495, picture_url: "https://picpointcloud.s3.amazonaws.com/uploads/photo/picture/4/1448386220643-498292486.jpg"},
@@ -135,7 +141,7 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);     //<------  MAP IS GLOBAL VARIABLE !!!!!
   var locations = getLocations(picData);
-  setMarkers(locations, picData);
+  setMarkers(locations, picData, tMode);
 }
 
 // capture GPS coords for each picture added to itinerary
