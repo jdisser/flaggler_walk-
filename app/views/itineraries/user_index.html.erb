@@ -18,8 +18,10 @@
 <div class="container text-center">
   <div class="container-fluid">
       <% @itineraries.each do |itinerary| %>
-          <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
-          <%= link_to image_tag("garbagecan.png"), itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% if itinerary.photos.first.present? %>
+            <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb)), itinerary %>
+            <%= link_to image_tag("garbagecan.png"), itinerary, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
       <% end %>
   </div>
 
