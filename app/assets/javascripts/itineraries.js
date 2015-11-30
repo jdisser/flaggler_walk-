@@ -109,18 +109,18 @@ function setMarkers(locations, picData, tMode) {
             anchor: new google.maps.Point(12,12)
           };
 
-          getPosition();
+          // getPosition();                   //geolocation
           //Note: the position is not avialable at the time of this call but will
           //update every 2 seconds on the interval timer. Use a fixed position to
           //create the marker, it will jump to the actual location when the data
           //becomes available. No error handling implemented here.
 
-          uMarker = new google.maps.Marker({
-            position: currentPosition,
-            map: map,
-            icon: umarkerImage,
-            title: 'U R HERE'
-          });
+          // uMarker = new google.maps.Marker({ //geolocation
+          //   position: currentPosition,
+          //   map: map,
+          //   icon: umarkerImage,
+          //   title: 'U R HERE'
+          // });
 
           picData.push(first);
           picData.push(last);
@@ -158,11 +158,12 @@ function setMarkers(locations, picData, tMode) {
           $('#trail-length').text("This trail is " + trailLength + " miles long");
 
           //positions the user marker at position on an interval of 2 seconds
-          var runTimer = setInterval(function(){
-            console.log("currentPosition in runTimer f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
+          // var runTimer = setInterval(function(){   //geolocation
+          //   console.log("currentPosition in runTimer f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
+          //
+          //   uMarker.setPosition(currentPosition);
+          // },2000);
 
-            uMarker.setPosition(currentPosition);
-          },60000);
 
         } else {//???? funny div message??? experiencing technical difficulty GFIP
           ;//trigger an alert to request the user refresh the browser
