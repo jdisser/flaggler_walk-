@@ -5,9 +5,8 @@
 <div class="container uploaderbox">
 
   <div class=" container text-center text-center ">
-    <%= f.file_field :picture, id: "fileInput", class:"fileinput-new", data: { capture:"camera", accept:"image/*" } %>
     <div class="fileinput fileinput-new" data-provides="fileinput">
-      <%# f.file_field :picture, id: "fileInput", class:"fileinput-new", data: { capture:"camera", accept:"image/*" } %>
+      <%= f.file_field :picture, id: "fileInput", class:"fileinput-new", data: { capture:"camera", accept:"image/*" } %>
       <%# f.file_field :picture, id: "fileInput", class:"fileinput-new" %>
       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 100px; height: 100px;">
       </div>
