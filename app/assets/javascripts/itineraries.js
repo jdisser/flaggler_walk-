@@ -162,7 +162,7 @@ function setMarkers(locations, picData, tMode) {
             console.log("currentPosition in runTimer f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
 
             uMarker.setPosition(currentPosition);
-          },2000);
+          },60000);
 
         } else {//???? funny div message??? experiencing technical difficulty GFIP
           ;//trigger an alert to request the user refresh the browser
