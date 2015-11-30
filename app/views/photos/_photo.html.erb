@@ -2,8 +2,18 @@
 
 
 
-<%= image_tag(photo.picture_url(:thumb), id: photo.id, class: "thumbnails") %>
 
-<%# image_tag(photo.picture_url, class: "fullsize") %>
-   <%# photo.latitude  %>
-   <%# photo.longitude  %>
+  <%= link_to image_tag(photo.picture_url(:thumb), id: photo.id, class: "thumbnails"), "#", id: "test#{photo.id}" %>
+  <%= image_tag(photo.picture_url, id: "full#{photo.id}", class: "fullsize") %>
+  <%# link_to image_tag(photo.picture_url(:thumb), id: photo.id, class: "thumbnails"), "#mymodal#{photo.id}", class:"mymodal-trigger" %>
+  <%# link_to company_review(q.user_id), "#review-modal#{q.user_id}", class: "review-modal-trigger" %>
+  <%# photo.latitude  %>
+  <%# photo.longitude  %>
+  <script>
+    $(document).on('page:change', function(){
+      $('#test<%= photo.id %>').on('click', function(){
+        event.preventDefault();
+        $('#full<%= photo.id %>').bPopup();
+      });
+    });
+    </script>
