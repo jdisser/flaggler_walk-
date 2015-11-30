@@ -105,6 +105,14 @@ margin-right: auto;
 border-radius: 12px;
 }
 
+.uploaderbox2 {
+background-color: #22ADA5;
+width: 85%;
+margin-top: 8%;
+/*margin-left: auto;
+margin-right: auto;*/
+border-radius: 12px;
+}
 /*field to enter title of trail */
 .field {
 padding-top: 20px;
