@@ -2,8 +2,9 @@ class Itinerary < ActiveRecord::Base
   belongs_to :user
   has_many :photos
 
-  validates :title, presence: true, length: {maximum:50}
+  mount_uploader :logo, LogoUploader
 
-  # mount_uploader :logo, LogoUploader
+  validates :title, presence: true, length: {maximum:50}
+  
   #load the logo for buisness/organization
 end

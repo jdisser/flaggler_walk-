@@ -6,7 +6,8 @@
 
   <div class=" container text-center text-center ">
     <div class="fileinput fileinput-new" data-provides="fileinput">
-      <%= f.file_field :picture, id: "fileInput", class:"fileinput-new" %>
+      <%= f.file_field :picture, id: "fileInput", class:"fileinput-new", data: { capture:"camera", accept:"image/*" } %>
+      <%# f.file_field :picture, id: "fileInput", class:"fileinput-new" %>
       <div class="fileinput-preview thumbnail" data-trigger="fileinput" style="width: 100px; height: 100px;">
       </div>
     </div>
@@ -15,9 +16,7 @@
     <%= f.hidden_field :longitude, :value => "", id: "longitude" %>
 </div>
 
-
 <div>
-    <%#  image_submit_tag("add.png", id:"addphoto") %>
     <%= f.button "ADD", class: "btn btn-success", data: {disable_with: "<i class='fa fa-spinner fa-spin'></i> Uploading..."} %>
 </div>
 <% end %>

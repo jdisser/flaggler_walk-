@@ -1,7 +1,6 @@
 class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
 
-
   def index
     @itineraries = Itinerary.all
   end
@@ -31,6 +30,8 @@ class ItinerariesController < ApplicationController
 
   def edit_trail
     require_logged_in
+    
+
   end
 
   def create
