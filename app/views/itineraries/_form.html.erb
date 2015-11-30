@@ -18,11 +18,11 @@
   </div>
   <div class="field">
 
-    <%= f.radio_button(:travel, :class => "check-box") %>
+    <%= f.radio_button(:travel, "WALKING", checked: true) %>
     <%= f.label(:travel, image_tag("walker.png", class:"travel-mode")) %>
-    <%= f.radio_button(:travel, class:"check-box2") %>
+    <%= f.radio_button(:travel, "BICYCLING") %>
     <%= f.label(:travel, image_tag("bicycle.png", class:"travel-mode2")) %>
-    <%= f.radio_button(:travel, class:"check-box3") %>
+    <%= f.radio_button(:travel, "DRIVING") %>
     <%= f.label(:travel, image_tag("car.png", class:"travel-mode3")) %>
   </div>
 

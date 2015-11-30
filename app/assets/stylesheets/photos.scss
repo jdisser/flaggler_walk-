@@ -4,6 +4,7 @@
 #fileInput {
   width: 100px;
   opacity: 0;
+  visibility: visible;
 }
 
 #addphoto {
@@ -12,4 +13,9 @@
 }
 .addphoto {
   font-size: 4em;
+}
+.fullsize {
+  display: none;
+  border-radius:10px 10px 10px 10px;
+  box-shadow:0 0 25px 5px #999;
 }
