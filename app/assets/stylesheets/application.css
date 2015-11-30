@@ -22,7 +22,9 @@ body {
   color:#00BDAC;
 }
 
-
+a {
+  color:
+}
 /*--header -- */
 .top {
   width: 100%;
@@ -75,6 +77,9 @@ body {
   width: 500px;
 }
 
+#signup_form {
+  display: none;
+}
 /*--lead image gallery for index and user page */
 .trailleadpic {
   width: 100%;
@@ -82,6 +87,7 @@ body {
   margin: -1% -1% -1% -1%;
   padding: 0 0 0 0;
 }
+
 
 .picpin {
   padding: 0 0 0 0;
