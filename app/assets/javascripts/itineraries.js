@@ -4,6 +4,13 @@ var trailDestiination;
 var trailPics;
 var first;
 var last;
+var uMarker;                    //moving marker is global
+var positionValid = false;
+
+var currentPosition = {         //initialize to a fixed position
+  lat: 26.1266,
+  lng: -80.1361
+};
 
 var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     var jsonData = null;
@@ -19,10 +26,27 @@ var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     return jsonData;
 });
 
+var getPosition = function(){
+  navigator.geolocation.getCurrentPosition(setPosition);
+}
+
+function setPosition(position){
+  var lat;
+  var lon;
+  lat = position.coords.latitude;
+  currentPosition.lat = lat;
+  // console.log("read lat: " + lat);
+  lon = position.coords.longitude;
+  currentPosition.lng = lon;
+  positionValid = true;
+  console.log("currentPosition in setPosition f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
+
+}
+
+
 var getLocations = function (picData){
 
   first = picData.shift();
-
   trailOrigin = new google.maps.LatLng(first.latitude, first.longitude);
   last = picData.pop();
   trailDestination = new google.maps.LatLng(last.latitude, last.longitude);
@@ -30,25 +54,23 @@ var getLocations = function (picData){
   for(var i = 0; i < picData.length; i++) {
     trailPics.push({ location: new google.maps.LatLng(picData[i].latitude, picData[i].longitude) });
   }
-
 }
 
-function setMarkers(locations, picData) {
+function setMarkers(locations, picData, tMode) {
 
   var directionsService = new google.maps.DirectionsService();
 
   var directionRenderer = new google.maps.DirectionsRenderer({
     suppressMarkers: true
   });
-//  directionRenderer.suppressMarkers = true;
   directionRenderer.setMap(map);
 
 
   var directionsRequest = {
     origin: trailOrigin,
     destination: trailDestination,
-    waypoints: trailPics || [],                                 //to handle 2 point route JRD112415
-    travelMode: google.maps.DirectionsTravelMode.WALKING, //<-----get this var from #Travel
+    waypoints: trailPics || [],                           //to handle 2 point route JRD112415
+    travelMode: google.maps.DirectionsTravelMode[tMode],  //get the mode from the #travel field
     unitSystem: google.maps.UnitSystem.IMPERIAL,
     optimizeWaypoints: true                               //reorder the waypoints if mixed JRD112415
   };
@@ -61,19 +83,45 @@ function setMarkers(locations, picData) {
                                                     //OVER_QUERY_LIMIT, REQUEST_DENIED, UNKNOWN_ERROR
         {
           directionRenderer.setDirections(response);//display route on the map
+
           var picPosition = {};
           var trailLength = 0;
           var picDisplay;
           var infoContent;
           var marker;
           var markerArray = [];
-          var markerImage = {                       //define the icon and anchor point
-            // url: '/assets/picpinmarker.png',
-            url: 'https://s3.amazonaws.com/photastic/uploads/photo/upload/picpin/picpinmarker.png',
+          var uPosition = {
+            lat: null,
+            lng: null
+          };
+
+          var markerImage = {                       //define the picture marker
+            url: 'https://s3.amazonaws.com/picpointcloud/map+icons/picpinmarker.png',
             size: new google.maps.Size(25,25),
             origin: new google.maps.Point(0,0),
             anchor: new google.maps.Point(12,12)    //set to center of image
           };
+
+          var umarkerImage = {                      //Create the user location marker
+            url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
+            size: new google.maps.Size(25,25),
+            origin: new google.maps.Point(0,0),
+            anchor: new google.maps.Point(12,12)
+          };
+
+          getPosition();
+          //Note: the position is not avialable at the time of this call but will
+          //update every 2 seconds on the interval timer. Use a fixed position to
+          //create the marker, it will jump to the actual location when the data
+          //becomes available. No error handling implemented here.
+
+          uMarker = new google.maps.Marker({
+            position: currentPosition,
+            map: map,
+            icon: umarkerImage,
+            title: 'U R HERE'
+          });
+
           picData.push(first);
           picData.push(last);
 
@@ -108,7 +156,14 @@ function setMarkers(locations, picData) {
           trailLength /= 1609.00;                                     //convert to miles
           trailLength = trailLength.toFixed(2);                       //limit deceimals
           $('#trail-length').text("This trail is " + trailLength + " miles long");
-          console.log(trailLength);
+
+          //positions the user marker at position on an interval of 2 seconds
+          var runTimer = setInterval(function(){
+            console.log("currentPosition in runTimer f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
+
+            uMarker.setPosition(currentPosition);
+          },2000);
+
         } else {//???? funny div message??? experiencing technical difficulty GFIP
           ;//trigger an alert to request the user refresh the browser
       }
@@ -118,6 +173,7 @@ function setMarkers(locations, picData) {
 
 function initialize() {
   var itin = $("#trail").text(); //was in set markers JRD112415 added jq selector for trail
+  var tMode = $("#travel").text();
 
   var picData = getJson(itin);    //comment out for testing
   // // var picData = [{id: 4, title: null, latitude: 26.1284596, longitude: -80.1452495, picture_url: "https://picpointcloud.s3.amazonaws.com/uploads/photo/picture/4/1448386220643-498292486.jpg"},
@@ -136,7 +192,7 @@ function initialize() {
   };
   map = new google.maps.Map(document.getElementById('map'), mapOptions);     //<------  MAP IS GLOBAL VARIABLE !!!!!
   var locations = getLocations(picData);
-  setMarkers(locations, picData);
+  setMarkers(locations, picData, tMode);
 }
 
 // capture GPS coords for each picture added to itinerary
@@ -150,3 +206,24 @@ $(document).on("page:change", function() {
     });
   });
 });
+
+//-----------------------------------------------------------------------------
+//Notes:
+//
+//Method of handling asynchronous geolocation response
+//
+// function getCurrentLocation(callback) {
+//    if(navigator.geolocation) {
+//       navigator.geolocation.getCurrentPosition(function(position) {
+//          callback(new google.maps.LatLng(position.coords.latitude,
+//                                        position.coords.longitude));
+//        });
+//     }
+//     else {
+//        throw new Error("Your browser does not support geolocation.");
+//     }
+// }
+//
+// getCurrentLocation(function(loc){
+//   //do something with loc
+// });
