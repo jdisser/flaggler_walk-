@@ -3,7 +3,10 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .field {
   color:black;
-  font-size: 1.5em;
+  padding-bottom: 10px;
+  height: 30px !important;
+  width: 75%;
+  justify-content: right;
 }
 
 .signup {
@@ -11,8 +14,36 @@
   padding-top: 0;
 }
 
-.login {
+.row_signup {
+  text-align: center;
+  margin-top: 5%;
 
+}
+
+.login_field{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+h1 .longinheadline{
+  color:#FEC954;
+  padding-bottom: 50px;
+}
+
+.login {
+  color:#FEC954;
+  font-size: 2em;
+  padding-bottom: 5%;
+}
+
+#signup a:hover {
+  text-decoration: none;
+
+}
+
+#signup a:visited {
+  background:#21ADA4;
 }
 
 
@@ -27,6 +58,5 @@ and (max-device-width : 667px) {
 
   .login {
     padding-bottom: 10%;
-    color: #FEC954;
   }
 }
