@@ -8,7 +8,7 @@
   <h1>Follow a trail</h1>
 </div>
 <div class="row tagline">
-  <h4>Look up!</h4>
+  <h4><strong>Look up!</strong></h4>
 </div>
 
 
@@ -18,7 +18,7 @@
     <div class="container-fluid text-center trailleadpic">
       <% @itineraries.each do |itinerary| %>
         <% if itinerary.photos.first.present? %>
-          <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), alt:"No picture!", class: "leadpic"), itinerary, class:'picpin' %>
+          <%= link_to image_tag(itinerary.photos.first.picture_url(:thumb), class: "leadpic"), itinerary, class:'picpin' %>
         <% end %>
       <% end %>
     </div>

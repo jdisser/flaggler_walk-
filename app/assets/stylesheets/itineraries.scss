@@ -4,6 +4,14 @@ body {
   font-family: 'Rancho', 'cursive';
 }
 
+.thumbnail {
+  background-image: image-url("camera-128.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  border: solid #057B71;
+  border-radius: 12px;
+  background-color:#FEC954;
+}
 .travel-mode {
   width: 50px;
   height: 50px;
@@ -30,6 +38,15 @@ body {
   padding-bottom: 5%;
 }
 
+// number of photos added to trail out of 10
+.count {
+  color: #FEC954 !important;
+
+}
+
+.donebutton {
+  padding-top: 15px;
+}
 .btn {
   color: #057B71!important;
   background-color:#FEC954;
@@ -56,10 +73,17 @@ body {
 // social media buttons
 .social {
   margin-top: -5%;
-  margin-left: 2em;
   text-align: left;
-  font-size: 2em;
+  background-color: red;
   color: #057B71;
+}
+
+.share{
+  margin-left: 35%;
+}
+.sharing {
+  margin-left: 200px;
+  margin-top: -10%;
 }
 
 // map positionsing
@@ -79,11 +103,11 @@ and (max-device-width : 667px) {
     margin-left: 10%;
   }
 
-  .social {
-    margin-top: -10%;
-    margin-left: .5em;
-    font-size: 1.5em;
-    padding-bottom: .5em;
+// share button styling
+  .sharing {
+    color: #FEC954;
+    background-color:#00BDAC ;
+    margin-left: 4%;
     }
   // Hi user! Blaze a trail
   .greeting {
@@ -92,7 +116,7 @@ and (max-device-width : 667px) {
   // instructions for steps to create a trail
   .instructions{
     margin-bottom: -8%;
-    font-size: 25px;
+    font-size: 40px;
     padding-bottom: 10px;
   }
 
@@ -111,6 +135,16 @@ and (max-device-width : 667px) {
   }
 }
 
+
 .sharing {
-  margin-left: 100px;
+  margin-left: 0px;
+  margin-top: -10%;
+}
+
+#trail {
+  display: none;
+}
+
+#travel {
+  display: none;
 }

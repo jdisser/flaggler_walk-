@@ -1,3 +1,32 @@
 // Place all the styles related to the sessions controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.field {
+  color:black;
+  font-size: 1.5em;
+}
+
+.signup {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.login {
+
+}
+
+
+@media only screen
+and (min-device-width : 300px)
+and (max-device-width : 667px) {
+  .signup {
+    margin-top: -20%;
+    padding-top: 0;
+    color: #FEC954;
+  }
+
+  .login {
+    padding-bottom: 10%;
+    color: #FEC954;
+  }
+}
