@@ -13,4 +13,7 @@ $(document).on('page:change', function() {
   $('.fileinput-preview').on('click', function() {
     $('.fileinput-new').trigger('click');
   });
+  $('#signup').on('click', function(){
+    $('#signup_form').slideDown();
+  });
 });
