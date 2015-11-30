@@ -19,7 +19,7 @@ body {
   background-color: #B1E6D9;
   font-family: 'Rancho', 'cursive';
   margin-bottom: 8%;
-  color:#00BDAC;
+  color: ;
 }
 
 a {
@@ -100,6 +100,8 @@ a {
 background-color: #22ADA5;
 width: 85%;
 margin-top: 8%;
+margin-left: auto;
+margin-right: auto;
 border-radius: 12px;
 }
 

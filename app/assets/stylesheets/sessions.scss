@@ -5,7 +5,7 @@
   color:black;
   padding-bottom: 10px;
   height: 30px !important;
-  width: 40%;
+  width: 75%;
   justify-content: right;
 }
 
@@ -16,7 +16,14 @@
 
 .row_signup {
   text-align: center;
+  margin-top: 5%;
 
+}
+
+.login_field{
+  width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 h1 .longinheadline{
@@ -30,6 +37,14 @@ h1 .longinheadline{
   padding-bottom: 5%;
 }
 
+#signup a:hover {
+  text-decoration: none;
+
+}
+
+#signup a:visited {
+  background:#21ADA4;
+}
 
 
 @media only screen
