@@ -7,10 +7,10 @@ var last;
 var uMarker;                    //moving marker is global
 var positionValid = false;
 
-var currentPosition = {         //initialize to a fixed position
-  lat: 26.1266,
-  lng: -80.1361
-};
+// var currentPosition = {         //initialize to a fixed position
+//   lat: 26.1266,
+//   lng: -80.1361
+// };
 
 var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     var jsonData = null;
@@ -26,22 +26,22 @@ var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     return jsonData;
 });
 
-var getPosition = function(){
-  navigator.geolocation.getCurrentPosition(setPosition);
-}
-
-function setPosition(position){
-  var lat;
-  var lon;
-  lat = position.coords.latitude;
-  currentPosition.lat = lat;
-  // console.log("read lat: " + lat);
-  lon = position.coords.longitude;
-  currentPosition.lng = lon;
-  positionValid = true;
-  console.log("currentPosition in setPosition f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
-
-}
+// var getPosition = function(){
+//   navigator.geolocation.getCurrentPosition(setPosition);
+// }
+//
+// function setPosition(position){
+//   var lat;
+//   var lon;
+//   lat = position.coords.latitude;
+//   currentPosition.lat = lat;
+//   // console.log("read lat: " + lat);
+//   lon = position.coords.longitude;
+//   currentPosition.lng = lon;
+//   positionValid = true;
+//   console.log("currentPosition in setPosition f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
+//
+// }
 
 
 var getLocations = function (picData){
