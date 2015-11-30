@@ -71,7 +71,7 @@ function setMarkers(locations, picData, tMode) {
     destination: trailDestination,
     waypoints: trailPics || [],                           //to handle 2 point route JRD112415
     travelMode: google.maps.DirectionsTravelMode[tMode],  //get the mode from the #travel field
-    unitSystem: google.maps.UnitSystem.IMPERIAL,
+    unitSystem: google.maps.UnitSystem.METRIC,
     optimizeWaypoints: true                               //reorder the waypoints if mixed JRD112415
   };
 
