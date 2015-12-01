@@ -8,6 +8,12 @@ var last;
 // var positionValid = false;
 
 // var currentPosition = {         //initialize to a fixed position
+
+var uMarker = undefined;                    //moving marker is global
+var positionValid = false;
+
+// var currentPosition = {         //geolocation initialize to a fixed position
+
 //   lat: 26.1266,
 //   lng: -80.1361
 // };
@@ -26,7 +32,9 @@ var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     return jsonData;
 });
 
+
 // var getPosition = function(){
+// var getPosition = function(){                            //geolocation
 //   navigator.geolocation.getCurrentPosition(setPosition);
 // }
 //
@@ -102,12 +110,16 @@ function setMarkers(locations, picData, tMode) {
             anchor: new google.maps.Point(12,12)    //set to center of image
           };
 
+
           // var umarkerImage = {                      //Create the user location marker
           //   url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
           //   size: new google.maps.Size(25,25),
           //   origin: new google.maps.Point(0,0),
           //   anchor: new google.maps.Point(12,12)
           // };
+
+
+
 
           // getPosition();                   //geolocation
           //Note: the position is not avialable at the time of this call but will
@@ -208,6 +220,41 @@ $(document).on("page:change", function() {
   });
 });
 
+function getCurrentLocation(callback) {
+   if(navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+         callback(new google.maps.LatLng(position.coords.latitude,
+           position.coords.longitude));
+       });
+    }
+    else {
+       alert("Your browser does not support geolocation.");
+    }
+}
+$(function(){
+  $("#whereami").on("click",function(){
+    getCurrentLocation(function(loc){
+      //do something with loc
+      if (uMarker === undefined){
+        var umarkerImage = {                      //Create the user location marker
+          url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
+          size: new google.maps.Size(25,25),
+          origin: new google.maps.Point(0,0),
+          anchor: new google.maps.Point(12,12)
+        };
+        uMarker = new google.maps.Marker({ //geolocation
+          position: loc,
+          map: map,
+          icon: umarkerImage,
+          title: 'U R HERE'
+        });
+      } else {
+        uMarker.setPosition(loc);
+      }
+    });
+  });
+});
+
 //-----------------------------------------------------------------------------
 //Notes:
 //
@@ -228,3 +275,21 @@ $(document).on("page:change", function() {
 // getCurrentLocation(function(loc){
 //   //do something with loc
 // });
+//-----------------------------------------------------------------------------
+//this method uses a callback on change
+// var watchId = navigator.geolocation.watchPosition(successCallback,
+//               errorCallback,
+//               {enableHighAccuracy:true,timeout:60000,maximumAge:0});
+
+// function successCallback(position) {
+//       var myLatlng = new google.maps.LatLng(position.coords.latitude, position.coords.longitude);
+//       if(map == undefined) {
+//         var myOptions = {
+//           zoom: 15,
+//           center: myLatlng,
+//           mapTypeId: google.maps.MapTypeId.ROADMAP
+//         }
+//         map = new google.maps.Map(document.getElementById("map"), myOptions);
+//       }
+//       else map.panTo(myLatlng);
+//     }
