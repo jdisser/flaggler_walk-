@@ -4,8 +4,8 @@ var trailDestiination;
 var trailPics;
 var first;
 var last;
-var uMarker;                    //moving marker is global
-var positionValid = false;
+// var uMarker;                    //moving marker is global
+// var positionValid = false;
 
 // var currentPosition = {         //initialize to a fixed position
 //   lat: 26.1266,
@@ -102,12 +102,12 @@ function setMarkers(locations, picData, tMode) {
             anchor: new google.maps.Point(12,12)    //set to center of image
           };
 
-          var umarkerImage = {                      //Create the user location marker
-            url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
-            size: new google.maps.Size(25,25),
-            origin: new google.maps.Point(0,0),
-            anchor: new google.maps.Point(12,12)
-          };
+          // var umarkerImage = {                      //Create the user location marker
+          //   url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
+          //   size: new google.maps.Size(25,25),
+          //   origin: new google.maps.Point(0,0),
+          //   anchor: new google.maps.Point(12,12)
+          // };
 
           // getPosition();                   //geolocation
           //Note: the position is not avialable at the time of this call but will
