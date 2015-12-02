@@ -8,13 +8,13 @@
       <%= form_tag login_path do %>
       <%# form_tag sessions_path do %>
           <!-- <%= label_tag :username %> -->
-          <%= text_field_tag :username, class: 'login_field'%><br>
+          <%= text_field_tag :username, :username, class: 'login_field'%><br>
 
-          <%= password_field_tag :password, class: 'login_field' %>
-  </div>
-  <div class="row">
-        <%= submit_tag 'Login'%>
-      <% end %>
+          <%= password_field_tag :password, :password, class: 'login_field' %>
+          <div class="row">
+                <%= submit_tag 'Login'%>
+              <% end %>
+          </div>
   </div>
   </div>
 
