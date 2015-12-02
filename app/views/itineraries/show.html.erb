@@ -16,7 +16,6 @@
 
 <p id="trail-length"></p>
 
-
 <!--image thumbnails to open as model -->
 <div class="container-fluid">
   <%= render @itinerary.photos %>
@@ -26,18 +25,25 @@
 
 <%= content_tag(:p, @itinerary.travel, id: "travel") %>
 
-<%# link_to 'Back', itineraries_path %>
-
 </div>
+<br>
+<button type="button" class="btn btn-success" id="whereami">Where Am I?</button>
 
 <script>
           config = {
-            // title:'Pik Trail',
-            // description: "Follow the Trail!"
             networks: {
           email: {
             enabled: false
-              }
+                },
+          twitter: {
+            description: "Explore a trail! Look up!"
+          },
+          facebook: {
+            description: "Explore a trail! Look up!"
+          },
+          pintrist: {
+            description: "Explore a trail! Look up!"
+          },
             }
           };
           var shareButton = new ShareButton('.sharing', config)
