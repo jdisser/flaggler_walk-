@@ -3,10 +3,11 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 .field2 {
   color:black;
-  padding-bottom: 10px;
-  height: 30px !important;
+  // padding-bottom: 10px;
+  height: 50px !important;
   width: 75%;
   justify-content: right;
+  font-family: sans-serif;
 }
 
 .signup {
@@ -24,6 +25,8 @@
   width: 75%;
   margin-left: auto;
   margin-right: auto;
+  font-family: sans-serif;
+  color: black;
 }
 
 h1 .longinheadline{
