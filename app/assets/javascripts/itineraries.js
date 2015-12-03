@@ -171,31 +171,25 @@ function initialize() {
 
 // capture GPS coords for each picture added to itinerary
 $(document).on("page:change", function() {
+
+  var lat;
+  var lon;
+
+  
+
   $('#fileInput').on('click', function() {
-    navigator.geolocation.getCurrentPosition(function(position){
-      lat = position.coords.latitude;
-      lon = position.coords.longitude;
       document.getElementById('latitude').value = String(lat);
       document.getElementById('longitude').value = String(lon);
-    });
   });
-});
 
-function getCurrentLocation(callback) {
-   if(navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(function(position) {
-         callback(new google.maps.LatLng(position.coords.latitude,
-           position.coords.longitude));
-       });
-    }
-    else {
-       alert("Your browser does not support geolocation.");
-    }
-}
-$(function(){
+
+
+
   var watcher = navigator.geolocation.watchPosition(function(loc){
                   var myLatLng = new google.maps.LatLng(loc.coords.latitude,
                      loc.coords.longitude);
+                  lat = loc.coords.latitude;
+                  lon = loc.coords.longitude;
 
                   if (uMarker === undefined){
                     var umarkerImage = {                      //Create the user location marker
@@ -215,6 +209,7 @@ $(function(){
                   }
                 });
 });
+
 
 //-----------------------------------------------------------------------------
 //Notes: This method is unreliable on iOS, working initially and eventually
