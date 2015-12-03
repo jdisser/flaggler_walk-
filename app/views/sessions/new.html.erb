@@ -1,31 +1,25 @@
-<div class="container-fluid text-center">
+<div class="container text-center">
   <div class="row">
     <div class="uploaderbox login">
-      <h1>Log in </h1>
+      <div class="row">
+        <h1 class="longinheadline">Log in</h1>
+      </div>
+  <div class="row">
       <%= form_tag login_path do %>
-      <%#= form_tag sessions_path do %>
-        <p>
-          <%= label_tag :username %>
-          <%= text_field_tag :username %>
-        </p>
+      <%# form_tag sessions_path do %>
+          <!-- <%= label_tag :username %> -->
+          <%= text_field_tag :username, :username, class: 'login_field'%><br>
 
-        <p>
-          <%= label_tag :password %>
-          <%= password_field_tag :password %>
-        </p>
-
-      <p>
-        <%= submit_tag 'Log in' %>
-      </p>
-
-      <% end %>
-    </div>
+          <%= password_field_tag :password, :password, class: 'login_field' %>
+          <div class="row">
+                <%= submit_tag 'Login'%>
+              <% end %>
+          </div>
+  </div>
   </div>
 
-  <div class="row">
-    <div class="uploaderbox signup">
-      <h1> Sign up</h1>
+  <!-- <div class="row"> -->
       <%= render 'form' %>
-    </div>
+      <!-- </div> -->
   </div>
 </div>

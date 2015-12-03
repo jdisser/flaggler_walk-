@@ -7,7 +7,7 @@ class ItinerariesController < ApplicationController
 
   def user_index
     require_logged_in
-    @itineraries = Itinerary.all
+    @itineraries = current_user.itineraries.all
   end
 
   def show
@@ -30,7 +30,7 @@ class ItinerariesController < ApplicationController
 
   def edit_trail
     require_logged_in
-    
+
 
   end
 
@@ -79,7 +79,7 @@ class ItinerariesController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_itinerary
       if current_user.present?
-        @itinerary = current_user.itineraries.find(params[:id])
+        @itinerary = Itinerary.find(params[:id])
       else
         @itinerary = Itinerary.find(params[:id])
       end

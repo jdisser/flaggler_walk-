@@ -4,10 +4,16 @@ var trailDestiination;
 var trailPics;
 var first;
 var last;
+// var uMarker;                    //moving marker is global
+// var positionValid = false;
+
+// var currentPosition = {         //initialize to a fixed position
+
 var uMarker = undefined;                    //moving marker is global
 var positionValid = false;
 
 // var currentPosition = {         //geolocation initialize to a fixed position
+
 //   lat: 26.1266,
 //   lng: -80.1361
 // };
@@ -26,6 +32,8 @@ var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
     return jsonData;
 });
 
+
+// var getPosition = function(){
 // var getPosition = function(){                            //geolocation
 //   navigator.geolocation.getCurrentPosition(setPosition);
 // }
@@ -71,7 +79,7 @@ function setMarkers(locations, picData, tMode) {
     destination: trailDestination,
     waypoints: trailPics || [],                           //to handle 2 point route JRD112415
     travelMode: google.maps.DirectionsTravelMode[tMode],  //get the mode from the #travel field
-    unitSystem: google.maps.UnitSystem.IMPERIAL,
+    unitSystem: google.maps.UnitSystem.METRIC,
     optimizeWaypoints: true                               //reorder the waypoints if mixed JRD112415
   };
 
@@ -101,6 +109,15 @@ function setMarkers(locations, picData, tMode) {
             origin: new google.maps.Point(0,0),
             anchor: new google.maps.Point(12,12)    //set to center of image
           };
+
+
+          // var umarkerImage = {                      //Create the user location marker
+          //   url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
+          //   size: new google.maps.Size(25,25),
+          //   origin: new google.maps.Point(0,0),
+          //   anchor: new google.maps.Point(12,12)
+          // };
+
 
 
 
@@ -158,6 +175,7 @@ function setMarkers(locations, picData, tMode) {
           //
           //   uMarker.setPosition(currentPosition);
           // },2000);
+
 
         } else {//???? funny div message??? experiencing technical difficulty GFIP
           ;//trigger an alert to request the user refresh the browser

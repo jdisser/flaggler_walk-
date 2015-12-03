@@ -19,7 +19,7 @@ body {
   background-color: #B1E6D9;
   font-family: 'Rancho', 'cursive';
   margin-bottom: 8%;
-  color:#00BDAC;
+  
 }
 
 
@@ -75,6 +75,9 @@ body {
   width: 500px;
 }
 
+#signup_form {
+  display: none;
+}
 /*--lead image gallery for index and user page */
 .trailleadpic {
   width: 100%;
@@ -82,6 +85,7 @@ body {
   margin: -1% -1% -1% -1%;
   padding: 0 0 0 0;
 }
+
 
 .picpin {
   padding: 0 0 0 0;
@@ -94,9 +98,20 @@ body {
 background-color: #22ADA5;
 width: 85%;
 margin-top: 8%;
+margin-left: auto;
+margin-right: auto;
 border-radius: 12px;
 }
 
+.uploaderbox2 {
+background-color: #22ADA5;
+width: 85%;
+margin-top: 8%;
+/*margin-left: auto;
+margin-right: auto;*/
+border-radius: 12px;
+
+}
 /*field to enter title of trail */
 .field {
 padding-top: 20px;
