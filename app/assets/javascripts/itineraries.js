@@ -168,7 +168,7 @@ function initialize() {
   var locations = getLocations(picData);
   setMarkers(locations, picData, tMode);
 }
-
+//magic comment
 // capture GPS coords for each picture added to itinerary
 $(document).on("page:change", function() {
   $('#fileInput').on('click', function() {
