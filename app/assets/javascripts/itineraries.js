@@ -178,6 +178,12 @@ $(document).on("page:change", function() {
   
 
   $('#fileInput').on('click', function() {
+<<<<<<< HEAD
+=======
+    navigator.geolocation.getCurrentPosition(function(position){
+      var lat = position.coords.latitude;
+      var lon = position.coords.longitude;
+>>>>>>> jdisser-master
       document.getElementById('latitude').value = String(lat);
       document.getElementById('longitude').value = String(lon);
   });
