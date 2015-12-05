@@ -2,7 +2,10 @@ class ItinerariesController < ApplicationController
   before_action :set_itinerary, only: [:show, :edit, :update, :destroy]
 
   def index
-    @itineraries = Itinerary.all
+    @itineraries = Itinerary.search(params[:keyword])
+    if @itineraries.count == 0
+      flash[:zero] = "Your search yielded no results!"
+    end
   end
 
   def user_index
