@@ -26,25 +26,6 @@ var getJson = (function (itin) { //was in setMarkers added itin param JRD112415
 });
 
 
-// var getPosition = function(){
-// var getPosition = function(){                            //geolocation
-//   navigator.geolocation.getCurrentPosition(setPosition);
-// }
-//
-// function setPosition(position){
-//   var lat;
-//   var lon;
-//   lat = position.coords.latitude;
-//   currentPosition.lat = lat;
-//   // console.log("read lat: " + lat);
-//   lon = position.coords.longitude;
-//   currentPosition.lng = lon;
-//   positionValid = true;
-//   console.log("currentPosition in setPosition f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
-//
-// }
-
-
 var getLocations = function (picData){
 
   first = picData.shift();
@@ -105,19 +86,6 @@ function setMarkers(locations, picData, tMode) {
 
 
 
-          // getPosition();                   //geolocation
-          //Note: the position is not avialable at the time of this call but will
-          //update every 2 seconds on the interval timer. Use a fixed position to
-          //create the marker, it will jump to the actual location when the data
-          //becomes available. No error handling implemented here.
-
-          // uMarker = new google.maps.Marker({ //geolocation
-          //   position: currentPosition,
-          //   map: map,
-          //   icon: umarkerImage,
-          //   title: 'U R HERE'
-          // });
-
           picData.push(first);
           picData.push(last);
 
@@ -153,13 +121,6 @@ function setMarkers(locations, picData, tMode) {
           trailLength = trailLength.toFixed(2);                       //limit deceimals
           $('#trail-length').text("This trail is " + trailLength + " miles long");
 
-          //positions the user marker at position on an interval of 2 seconds
-          // var runTimer = setInterval(function(){   //geolocation
-          //   console.log("currentPosition in runTimer f: " + currentPosition.lat + " Lat " + currentPosition.lng + " Lng" );
-          //
-          //   uMarker.setPosition(currentPosition);
-          // },2000);
-
 
         } else {
           alert("Unable to access Google Maps");
@@ -192,7 +153,6 @@ function initialize() {
   setMarkers(locations, picData, tMode);
 }
 
-
 //refactored callbacks to implement get location on click for accuracy and bat life
 // jdisser120615
 $(document).on("page:change", function() {
@@ -201,17 +161,6 @@ $(document).on("page:change", function() {
   });
   $('#whereami').on('click', function() {
     getCurrentLocation(setUserMarker);    //mark users location
-// =======
-// // capture GPS coords for each picture added to itinerary
-// $(document).on("page:change", function() {
-//   $('#fileInput').on('click', function() {
-//     navigator.geolocation.getCurrentPosition(function(position){
-//       lat = position.coords.latitude;
-//       lon = position.coords.longitude;
-//       document.getElementById('latitude').value = String(lat);
-//       document.getElementById('longitude').value = String(lon);
-//     });
-// >>>>>>> master
   });
 });
 //will run the callback function with a position object at current position
@@ -228,7 +177,6 @@ function getCurrentLocation(callback) {
        alert("Your browser does not support geolocation.");
     }
 }
-
 //sets hidden field doc elements with data
 function setImageLocation(picLatLon){
   var lat = picLatLon.coords.latitude;
@@ -259,34 +207,10 @@ function setUserMarker(position){
     uMarker.setPosition(myLatLng);
   }
 }
-// =======
-// $(function(){
-//   $("#whereami").on("click",function(){
-//     getCurrentLocation(function(loc){
-//       //do something with loc
-//       if (uMarker === undefined){
-//         var umarkerImage = {                      //Create the user location marker
-//           url: 'https://s3.amazonaws.com/picpointcloud/map+icons/umarker.png',
-//           size: new google.maps.Size(25,25),
-//           origin: new google.maps.Point(0,0),
-//           anchor: new google.maps.Point(12,12)
-//         };
-//         uMarker = new google.maps.Marker({ //geolocation
-//           position: loc,
-//           map: map,
-//           icon: umarkerImage,
-//           title: 'U R HERE'
-//         });
-//       } else {
-//         uMarker.setPosition(loc);
-//       }
-//     });
-//   });
-// });
-// >>>>>>> master
 
 //-----------------------------------------------------------------------------
-//Notes:
+//Notes: This method is unreliable on iOS, working initially and eventually
+//       freezing up. Also very slow, several seconds for asychronus response JRD120215
 //
 //Method of handling asynchronous geolocation response
 //
@@ -306,7 +230,7 @@ function setUserMarker(position){
 //   //do something with loc
 // });
 //-----------------------------------------------------------------------------
-//this method uses a callback on change
+//this method uses a callback on change with high accuracy
 // var watchId = navigator.geolocation.watchPosition(successCallback,
 //               errorCallback,
 //               {enableHighAccuracy:true,timeout:60000,maximumAge:0});
