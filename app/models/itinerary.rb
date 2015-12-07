@@ -5,6 +5,7 @@ class Itinerary < ActiveRecord::Base
   mount_uploader :logo, LogoUploader
 
   validates :title, presence: true, length: {maximum:50}
-  
-  #load the logo for buisness/organization
+
+  scope :search, ->(keyword){ where('lower(title) LIKE ?', "%#{keyword}%") if keyword.present? }
+
 end
