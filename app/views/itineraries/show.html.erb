@@ -1,5 +1,5 @@
 <div class="row headline">
-  <h1><%= @itinerary.title %></h1>
+  <h1><%= @itinerary.title %> by <%= link_to @itinerary.user.username, useritineraries_path(@itinerary.user_id)  %></h1>
 </div>
 
 
@@ -17,6 +17,7 @@
 <p id="trail-length"></p>
 
 <button type="button" class="btn btn-success" id="whereami">Where Am I?</button>
+
 <br><br>
 
 <!-- <button type="button" class="btn btn-success" id="whereami">Where Am I?</button>
@@ -27,9 +28,9 @@
   <%= render @itinerary.photos %>
 
 
-<%= content_tag(:p, @itinerary.id, id: "trail" ) %>
+  <%= content_tag(:p, @itinerary.id, id: "trail" ) %>
 
-<%= content_tag(:p, @itinerary.travel, id: "travel") %>
+  <%= content_tag(:p, @itinerary.travel, id: "travel") %>
 
 </div>
 
