@@ -1,5 +1,5 @@
 <div class="row headline">
-  <h1><%= @itinerary.title %></h1>
+  <h1><%= @itinerary.title %> by <%= link_to @itinerary.user.username, useritineraries_path(@itinerary.user_id)  %></h1>
 </div>
 
 
@@ -14,17 +14,23 @@
   <div id="map"></div>
 </div>
 
-<p id="trail-length"></p>
+<p id="trail-length"> | created <%= time_ago_in_words(@itinerary.created_at) %> ago </p>
+
 <button type="button" class="btn btn-success" id="whereami">Where Am I?</button>
+
 <br><br>
+
+<!-- <button type="button" class="btn btn-success" id="whereami">Where Am I?</button>
+<br><br> -->
+
 <!--image thumbnails to open as model -->
 <div class="container-fluid">
   <%= render @itinerary.photos %>
 
 
-<%= content_tag(:p, @itinerary.id, id: "trail" ) %>
+  <%= content_tag(:p, @itinerary.id, id: "trail" ) %>
 
-<%= content_tag(:p, @itinerary.travel, id: "travel") %>
+  <%= content_tag(:p, @itinerary.travel, id: "travel") %>
 
 </div>
 

@@ -10,10 +10,27 @@
 <div class="row tagline">
   <h4><strong>Look up!</strong></h4>
 </div>
-
-
+<!-- search bar -->
+<div class="row">
+  <div class="container">
+    <div class="col-md-3">
+      <form>
+        <legend class="search">Search:</legend>
+          <input id="search" type="text" class="form-control" value="<%= params[:keyword] %>" name="keyword" placeholder="enter your search">
+      </form>
+    </div>
+  </div>
+</div>
 <!-- Map of trails near the user -->
+<!-- flash alert if search yeilds no result -->
+<div class="row text-center">
+  <% flash.each do |key, value| %>
+    <div class="lead alert alert-<%= key %>"><%= value %></div>
+  <% end %>
+</div>
 
+<br>
+<br>
 <!-- Start gallery of images that represent trails -->
     <div class="container-fluid text-center trailleadpic">
       <% @itineraries.each do |itinerary| %>
